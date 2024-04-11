@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "dabubble-dab15": {
+      "hosting": {
+        "dabubble": [
+          "dabubble-dab15"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "dabubble-dab15"
+  }
+}
