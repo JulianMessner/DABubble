@@ -181,6 +181,18 @@
     margin: 0;
 }
 
+:root {
+    --bg-color: rgba(236, 238, 254, 1);
+    --purple-1: rgba(68, 77, 242, 1)
+    --purple-2: rgba(121, 126, 243, 1);
+    --purple-3: rgba(83, 90, 241, 1);
+    --text-grey: rgba(104, 104, 104, 1);
+    --text-black: rgba(0, 0, 0, 1);
+    --text-white: rgba(255, 255, 255, 1);
+    --rosa-error: rgba(237, 30, 121, 1);
+    --online-green: rgba(146, 200, 62, 1);
+}
+
 html,
 body {
     height: 100%;
