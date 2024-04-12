@@ -1,0 +1,31 @@
+.container {
+    padding: 64px;
+}
+
+.login-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .register-info-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: end;
+
+        a {
+            color: var(--purple-2);
+            cursor: pointer;
+            border: 1px solid transparent;
+            padding: 6px 8px;
+            border-radius: 32px;
+            transition: all .175s ease-in-out;
+            text-decoration: none;
+
+            &:hover {
+                color: var(--purple-3);
+                border-color: var(--purple-3);
+            }
+        }
+    }
+}
