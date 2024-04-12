@@ -1,0 +1,86 @@
+.container {
+  height: 80px;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+
+  .logo-img {
+    width: 160px;
+    height: auto;
+  }
+}
+
+.header-user-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  .user-name-desktop {
+    font-weight: 700;
+    font-size: 32px;
+    display: none;
+  }
+
+  .user-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .user-options-desktop {
+    height: 30px;
+    width: 30px;
+    display: none;
+  }
+}
+
+.search-bar-desktop {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  border: 1px solid white;
+  border-radius: 42px;
+  padding: 8px 24px;
+  background-color: white;
+
+  input.search-input {
+    width: auto;
+    min-width: 400px;
+    border: none;
+    background-color: white;
+    outline: none;
+    &:focus{
+        background-color: white;
+    }
+    &::placeholder {
+      font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 32px;
+      text-align: left;
+      color: #686868;
+    }
+  }
+
+  img.search-bar-img {
+    height: 28px;
+    width: 28px;
+    &:hover{
+        cursor: pointer;
+    }
+  }
+
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: #686868 !important;
+  }
+}
+
