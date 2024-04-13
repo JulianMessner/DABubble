@@ -15,12 +15,20 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {}
 
   handleWorkspaceLogoClick() {
-    this.visibilityService.setLogoVisible(true);
-    this.visibilityService.setWorkspaceContainerVisible(false);
+    if (window.innerWidth <= 800) {
+      // Wenn die Bildschirmbreite kleiner oder gleich 800px ist,
+      // wird das Logo sichtbar gemacht und der workspace-container ausgeblendet
+      this.visibilityService.setLogoVisible(true);
+      this.visibilityService.setWorkspaceContainerVisible(false);
+    }
   }
 
   handleNavbarItemClick() {
-    this.visibilityService.setLogoVisible(false);
-    this.visibilityService.setWorkspaceContainerVisible(true);
+    if (window.innerWidth <= 800) {
+      // Wenn die Bildschirmbreite kleiner oder gleich 800px ist,
+      // wird das Logo ausgeblendet und der workspace-container sichtbar gemacht
+      this.visibilityService.setLogoVisible(false);
+      this.visibilityService.setWorkspaceContainerVisible(true);
+    }
   }
 }

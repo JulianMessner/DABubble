@@ -7,15 +7,16 @@ import { VisibilityService } from '../../../service/header-logo-visibility.servi
   standalone: true,
   imports: [CommonModule],
   templateUrl: './navbar-vertical.component.html',
-  styleUrl: './navbar-vertical.component.scss'
+  styleUrl: './navbar-vertical.component.scss',
 })
 export class NavbarVerticalComponent {
-
   constructor(private visibilityService: VisibilityService) {}
 
   handleNavbarItemClick() {
-    this.visibilityService.setLogoVisible(false);
-    this.visibilityService.setWorkspaceContainerVisible(true);
+    if (window.innerWidth <= 800) {
+      this.visibilityService.setLogoVisible(false);
+      this.visibilityService.setWorkspaceContainerVisible(true);
+    }
   }
 
   channelsContentVisible: boolean = false;
@@ -24,11 +25,15 @@ export class NavbarVerticalComponent {
 
   toggleChannelsContent() {
     this.channelsContentVisible = !this.channelsContentVisible;
-    this.animationClass = this.channelsContentVisible ? 'slide-in' : 'slide-out';
+    this.animationClass = this.channelsContentVisible
+      ? 'slide-in'
+      : 'slide-out';
   }
 
   toggleMessagesContent() {
     this.messagesContentVisible = !this.messagesContentVisible;
-    this.animationClass = this.channelsContentVisible ? 'slide-in' : 'slide-out';
+    this.animationClass = this.channelsContentVisible
+      ? 'slide-in'
+      : 'slide-out';
   }
 }
