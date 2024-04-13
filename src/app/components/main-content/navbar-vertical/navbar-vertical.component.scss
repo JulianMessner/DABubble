@@ -1,4 +1,4 @@
-.container{
+.container {
   background-color: white;
   height: 100vh;
   display: flex;
@@ -24,11 +24,13 @@
     border: none;
     background-color: transparent;
     outline: none;
-    &:focus{
-        background-color: transparent;
+    &:focus {
+      background-color: transparent;
     }
     &::placeholder {
-      font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+        "Helvetica Neue", sans-serif;
       font-size: 17px;
       font-weight: 400;
       line-height: 32px;
@@ -40,8 +42,8 @@
   img.search-bar-img {
     height: 28px;
     width: 28px;
-    &:hover{
-        cursor: pointer;
+    &:hover {
+      cursor: pointer;
     }
   }
 
@@ -53,28 +55,28 @@
 
 /*Workspace Container */
 
-.workspace-container{
-  display: flex;
+.workspace-container {
+  display: none;
   justify-content: space-between;
   width: 100%;
   align-items: center;
 
-  .workspace-logo-container{
+  .workspace-logo-container {
     display: flex;
     align-items: center;
     gap: 15px;
 
-    .workspace-logo-img{
+    .workspace-logo-img {
       width: 60xp;
       height: 60px;
     }
 
-    .workspace-name{
+    .workspace-name {
       font-weight: 700;
       font-size: 24px;
     }
 
-    .edit-square-img{
+    .edit-square-img {
       height: 24px;
       width: 24px;
     }
@@ -83,14 +85,14 @@
 
 /*Channels Container */
 
-.channels-container{
+.channels-container {
   width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
 
-  .channels-header{
+  .channels-header {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -102,87 +104,204 @@
       height: 30px;
       background-color: transparent;
       transition: background-color 0.3s ease;
-    
+
       &:hover {
         cursor: pointer;
         background-color: var(--bg-color);
       }
-    
+
       .add-icon-img {
         width: 100%;
         height: 100%;
-        &:hover{
-          filter: brightness(0) saturate(100%) invert(31%) sepia(72%) saturate(4370%) hue-rotate(232deg) brightness(101%) contrast(89%);
+        &:hover {
+          filter: brightness(0) saturate(100%) invert(31%) sepia(72%)
+            saturate(4370%) hue-rotate(232deg) brightness(101%) contrast(89%);
         }
       }
     }
-    
-    
   }
 }
 
-.channels-header-left{
+.channels-header-left {
   display: flex;
-    gap: 15px;
+  gap: 15px;
+  align-items: center;
+  &:hover {
+    cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(31%) sepia(72%) saturate(4370%)
+      hue-rotate(232deg) brightness(101%) contrast(89%);
+  }
+
+  .channels-header-name-logo {
+    display: flex;
     align-items: center;
-    &:hover{
+    gap: 10px;
+  }
+
+  .channels-header-name {
+    font-weight: 700;
+    font-size: 20px;
+    &:hover {
       cursor: pointer;
     }
-
-    .channels-header-name-logo{
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .channels-header-name{
-      font-weight: 700;
-      font-size: 20px;
-      &:hover{
-        cursor: pointer;
-      }
-    }
+  }
 }
 
-.channels-content{
+.channels-content {
   width: 90%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    animation: slideInFromTop 0.125s ease;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  opacity: 0;
+  transition: opacity 0.125s ease;
 }
 
-.channels-list{
+.animation-in {
+  opacity: 1;
+  animation: fadeIn 0.125s ease, slideInFromTop 0.125s ease;
+}
+
+.animation-out {
+  opacity: 0;
+  animation: fadeOut 0.125s ease, slideOutToTop 0.125s ease;
+}
+
+.channels-list {
   display: flex;
   align-items: center;
   gap: 10px;
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
 
-  .channels-name{
+  .channels-name {
     font-weight: 400;
     font-size: 17px;
   }
 }
 
-.add-channel{
+.add-channel {
   display: flex;
   align-items: center;
   gap: 10px;
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
 
-  .add-circle-icon{
+  .add-circle-icon {
     height: 24px;
     width: 24px;
   }
 
-  .add-channel-text{
+  .add-channel-text {
     color: var(--purple-3);
     font-size: 17px;
     font-weight: 400;
+  }
+}
+
+/*Messages Container*/
+
+.messages-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  .messages-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .add-icon {
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      background-color: transparent;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        cursor: pointer;
+        background-color: var(--bg-color);
+      }
+
+      .add-icon-img {
+        width: 100%;
+        height: 100%;
+        &:hover {
+          filter: brightness(0) saturate(100%) invert(31%) sepia(72%)
+            saturate(4370%) hue-rotate(232deg) brightness(101%) contrast(89%);
+        }
+      }
+    }
+  }
+}
+
+.messages-header-left {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: 30px;
+  &:hover {
+    cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(31%) sepia(72%) saturate(4370%)
+      hue-rotate(232deg) brightness(101%) contrast(89%);
+  }
+
+  .messages-header-name-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .messages-header-name {
+    font-weight: 700;
+    font-size: 20px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.messages-content {
+  width: 90%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  opacity: 0;
+  transition: opacity 0.125s ease;
+}
+
+.animation-in {
+  opacity: 1;
+  animation: fadeIn 0.125s ease, slideInFromTop 0.125s ease;
+}
+
+.animation-out {
+  opacity: 0;
+  animation: fadeOut 0.125s ease, slideOutToTop 0.125s ease;
+}
+
+.user-list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+
+  .user-icon {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+
+  .user-name {
+    font-weight: 400;
+    font-size: 17px;
   }
 }

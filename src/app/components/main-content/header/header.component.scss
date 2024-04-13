@@ -86,3 +86,29 @@
   }
 }
 
+/* Workspace Logo */
+
+.workspace-logo-container {
+  display: none;
+  align-items: center;
+  gap: 15px;
+  &:hover{
+    cursor: pointer;
+  }
+
+  .workspace-logo-img {
+    width: 60xp;
+    height: 60px;
+  }
+
+  .workspace-name {
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+  .back-icon {
+    height: 24px;
+    width: 24px;
+  }
+}
+

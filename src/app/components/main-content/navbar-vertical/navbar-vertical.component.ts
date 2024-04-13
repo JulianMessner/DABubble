@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { VisibilityService } from '../../../service/header-logo-visibility.service';
 
 @Component({
   selector: 'app-navbar-vertical',
@@ -10,9 +11,24 @@ import { Component } from '@angular/core';
 })
 export class NavbarVerticalComponent {
 
+  constructor(private visibilityService: VisibilityService) {}
+
+  handleNavbarItemClick() {
+    this.visibilityService.setLogoVisible(false);
+    this.visibilityService.setWorkspaceContainerVisible(true);
+  }
+
   channelsContentVisible: boolean = false;
+  messagesContentVisible: boolean = false;
+  animationClass: string = '';
 
   toggleChannelsContent() {
     this.channelsContentVisible = !this.channelsContentVisible;
+    this.animationClass = this.channelsContentVisible ? 'slide-in' : 'slide-out';
+  }
+
+  toggleMessagesContent() {
+    this.messagesContentVisible = !this.messagesContentVisible;
+    this.animationClass = this.channelsContentVisible ? 'slide-in' : 'slide-out';
   }
 }

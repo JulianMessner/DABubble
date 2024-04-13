@@ -1,5 +1,10 @@
 <div class="container">
-    <img class="logo-img" src="../../../../assets/img/logo-dabubble.png" alt="logo">
+    <img *ngIf="visibilityService.logoVisible" class="logo-img" src="../../../../assets/img/logo-dabubble.png" alt="logo">
+    <div class="workspace-logo-container"  (click)="handleWorkspaceLogoClick()" [style.display]="visibilityService.workspaceContainerVisible ? 'flex' : 'none'">        
+        <img class="back-icon" src="../../../../assets/img/arrow-left.png" alt="arrow-left">
+        <img class="workspace-logo-img" src="../../../../assets/img/workspace-logo.png" alt="workspace-logo">
+        <p class="workspace-name">Devspace</p>
+    </div>
 
     <div class="search-bar-desktop">
         <input name="search" class="search-input" type="text" placeholder="Code learning durchsuchen...">
