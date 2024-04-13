@@ -1,12 +1,18 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-navbar-vertical',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './navbar-vertical.component.html',
   styleUrl: './navbar-vertical.component.scss'
 })
 export class NavbarVerticalComponent {
 
+  channelsContentVisible: boolean = false;
+
+  toggleChannelsContent() {
+    this.channelsContentVisible = !this.channelsContentVisible;
+  }
 }

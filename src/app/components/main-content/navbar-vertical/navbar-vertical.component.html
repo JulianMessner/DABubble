@@ -1,6 +1,42 @@
 <div class="container">
+
     <div class="search-bar">
         <input name="search" class="search-input" type="text" placeholder="Gehe zu...">
         <img class="search-bar-img" src="../../../../assets/img/search.png" alt="search">
     </div>
+
+    <div class="workspace-container">
+        <div class="workspace-logo-container">
+            <img class="workspace-logo-img" src="../../../../assets/img/workspace-logo.png" alt="workspace-logo">
+            <p class="workspace-name">Devspace</p>
+        </div>
+        <img class="edit-square-img" src="../../../../assets/img/edit-square.png" alt="edit-square">
+    </div>
+
+        <div class="channels-container">
+            <div class="channels-header">
+                <div class="channels-header-left" (click)="toggleChannelsContent()">
+                    <img class="drop-down-icon" src="../../../../assets/img/arrow-drop-down.png" alt="drop-down">
+                    <div class="channels-header-name-logo">
+                        <img src="../../../../assets/img/workspaces.png" alt="workspace-icon">
+                        <p class="channels-header-name">Channels</p>
+                    </div>
+                </div>
+                <div class="add-icon">
+                    <img class="add-icon-img" src="../../../../assets/img/add.png" alt="add-icon">
+                </div>
+            </div>
+            <div class="channels-content" [ngStyle]="{ 'display': channelsContentVisible ? 'flex' : 'none' }">
+                <div class="channels-list">
+                    <img class="tag-icon" src="../../../../assets/img/tag.png" alt="tag">
+                    <p class="channel-name">Entwicklerteam</p>
+                </div>
+                <div class="add-channel">
+                    <img class="add-circle-icon" src="../../../../assets/img/add_circle.png" alt="add_circle">
+                    <p class="add-channel-text">Channel hinzufügen</p>
+                </div>
+            </div>
+        </div>
+
+
 </div>
