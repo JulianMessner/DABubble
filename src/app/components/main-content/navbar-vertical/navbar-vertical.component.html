@@ -64,5 +64,14 @@
         </div>
     </div>
 
+    <div class="new-message-container">
+        <img [src]="isHovering ? '../../../../assets/img/new-message-hover.png' : '../../../../assets/img/new-message.png'" 
+             alt="new-message" 
+             class="new-message"
+             (mouseenter)="toggleHover(true)"
+             (mouseleave)="toggleHover(false)">
+    </div>
+    
+
 
 </div>

@@ -74,6 +74,9 @@
     .workspace-name {
       font-weight: 700;
       font-size: 24px;
+      &:hover{
+        color: var(--purple-3);
+      }
     }
 
     .edit-square-img {
@@ -304,4 +307,15 @@
     font-weight: 400;
     font-size: 17px;
   }
+}
+
+.new-message-container{
+  position: fixed;
+  right: 10px;
+  bottom: 20px;
+}
+.new-message{
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
 }

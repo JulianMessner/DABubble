@@ -22,6 +22,7 @@ export class NavbarVerticalComponent {
   channelsContentVisible: boolean = false;
   messagesContentVisible: boolean = false;
   animationClass: string = '';
+  isHovering: boolean = false;
 
   toggleChannelsContent() {
     this.channelsContentVisible = !this.channelsContentVisible;
@@ -35,5 +36,9 @@ export class NavbarVerticalComponent {
     this.animationClass = this.channelsContentVisible
       ? 'slide-in'
       : 'slide-out';
+  }
+
+  toggleHover(hovering: boolean) {
+    this.isHovering = hovering;
   }
 }

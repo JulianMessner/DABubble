@@ -1,0 +1,73 @@
+.container {
+  height: 100vh;
+  background-color: white;
+  margin-top: 80px;
+}
+
+.thread-name-header {
+  display: flex;
+  width: 93%;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+
+  .add-user {
+    height: 40px;
+    width: 40px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.thread-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+  .tag-image {
+    height: 28px;
+    width: 28px;
+  }
+  .thread-name {
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .arrow-down {
+    height: 32px;
+    width: 32px;
+  }
+}
+
+/* Thread Container */
+
+.thread-container {
+  height: 100vh;
+  margin-top: 160px;
+  width: 100%;
+}
+
+.date-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .line {
+    min-width: 50px;
+    border-bottom: 1px solid grey;
+    flex: 1;
+  }
+
+  .date {
+    padding: 5px 15px;
+    border: 1px solid grey;
+    border-radius: 30px;
+    font-weight: 400;
+    font-size: 18px;
+    min-width: 200px;
+    text-align: center;
+  }
+}
