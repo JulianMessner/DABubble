@@ -27,15 +27,6 @@
     display: none;
   }
 
-  .user-img {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
   .user-options-desktop {
     height: 30px;
     width: 30px;
@@ -75,9 +66,6 @@
   img.search-bar-img {
     height: 28px;
     width: 28px;
-    &:hover{
-        cursor: pointer;
-    }
   }
 
   input:-webkit-autofill {
@@ -92,9 +80,6 @@
   display: none;
   align-items: center;
   gap: 15px;
-  &:hover{
-    cursor: pointer;
-  }
 
   .workspace-logo-img {
     width: 60xp;

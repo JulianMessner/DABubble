@@ -1,6 +1,6 @@
 <div class="container">
     <img *ngIf="visibilityService.logoVisible" class="logo-img" src="../../../../assets/img/logo-dabubble.png" alt="logo">
-    <div class="workspace-logo-container"  (click)="handleWorkspaceLogoClick()" [style.display]="visibilityService.workspaceContainerVisible ? 'flex' : 'none'">        
+    <div class="workspace-logo-container cursor-pointer"  (click)="handleWorkspaceLogoClick()" [style.display]="visibilityService.workspaceContainerVisible ? 'flex' : 'none'">        
         <img class="back-icon" src="../../../../assets/img/arrow-left.png" alt="arrow-left">
         <img class="workspace-logo-img" src="../../../../assets/img/workspace-logo.png" alt="workspace-logo">
         <p class="workspace-name">Devspace</p>
@@ -8,10 +8,10 @@
 
     <div class="search-bar-desktop">
         <input name="search" class="search-input" type="text" placeholder="Code learning durchsuchen...">
-        <img class="search-bar-img" src="../../../../assets/img/search.png" alt="search">
+        <img class="search-bar-img cursor-pointer" src="../../../../assets/img/search.png" alt="search">
     </div>
 
-    <div class="header-user-section">
+    <div class="header-user-section cursor-pointer">
         <span class="user-name-desktop">Frederik Bek</span>
         <img class="user-img" src="../../../../assets/img/user1-icon.png" alt="user-icon">
         <img class="user-options-desktop" src="../../../../assets/img/user_arrow_down.png" alt="user-settings">

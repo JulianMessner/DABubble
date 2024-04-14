@@ -209,6 +209,21 @@ body {
     padding: 16px;
 }
 
+.user-img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.font-size-14-lightgrey{
+  font-size: 14px;
+  color: var(--text-grey);
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
 @keyframes slideInFromTop {
     0% {
       transform: translateY(-30%);
