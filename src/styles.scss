@@ -209,6 +209,10 @@ body {
     padding: 16px;
 }
 
+.d-none{
+  display: none;
+}
+
 .user-img{
   height: 50px;
   width: 50px;
@@ -222,6 +226,15 @@ body {
 
 .cursor-pointer{
   cursor: pointer;
+}
+
+.reverse-order{
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+}
+
+.flex-end-column{
+  align-items: flex-end;
 }
 
 @keyframes slideInFromTop {
