@@ -1,3 +1,22 @@
-<div>
-    <router-outlet></router-outlet>
+<div class="front-page">
+    <div class="container">
+        <div class="login-header">
+            <div class="logo-wrapper">
+                <img src="./assets/images/logo.svg" alt="Logo">
+            </div>
+            <div class="register-info-container">
+                <div class="register-info">Neu bei DABubble?</div>
+                <a routerLink="/register">Konto erstellen</a>
+            </div>
+        </div>
+    
+        <router-outlet></router-outlet>
+    
+        <div class="login-footer">
+            <div class="links-container">
+                <a href="">Impressum</a>
+                <a href="">Datenschutz</a>
+            </div>
+        </div>
+    </div>
 </div>
