@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { VisibilityService } from '../../../service/header-logo-visibility.service';
+import { Component, OnInit } from '@angular/core';
+import { VisibilityService } from '../../../service/visibility.service';
+import { debug } from 'console';
 
 @Component({
   selector: 'app-navbar-vertical',
@@ -9,14 +10,29 @@ import { VisibilityService } from '../../../service/header-logo-visibility.servi
   templateUrl: './navbar-vertical.component.html',
   styleUrl: './navbar-vertical.component.scss',
 })
-export class NavbarVerticalComponent {
+export class NavbarVerticalComponent implements OnInit {
   constructor(private visibilityService: VisibilityService) {}
 
   handleNavbarItemClick() {
     if (window.innerWidth <= 800) {
+      this.visibilityService.setNavbarVisible(false);
+      this.visibilityService.setMainChatVisible(true);
+      this.visibilityService.setLogoVisible(false); 
+      this.visibilityService.setWorkspaceContainerVisible(true);
+    }
+  }
+
+  handleDirectMessageItemClick() {
+    if (window.innerWidth <= 800) {
+      this.visibilityService.setNavbarVisible(false);
+      this.visibilityService.setDirectMessageVisible(true);
       this.visibilityService.setLogoVisible(false);
       this.visibilityService.setWorkspaceContainerVisible(true);
     }
+  }
+
+  ngOnInit(): void {
+    
   }
 
   channelsContentVisible: boolean = false;

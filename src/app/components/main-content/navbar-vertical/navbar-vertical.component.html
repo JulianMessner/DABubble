@@ -57,7 +57,7 @@
         <div class="messages-content"
             [ngClass]="{ 'animation-in': messagesContentVisible, 'animation-out': !messagesContentVisible }"
             [ngStyle]="{ 'display': messagesContentVisible ? 'flex' : 'none' }">
-            <div class="user-list cursor-pointer" (click)="handleNavbarItemClick()">
+            <div class="user-list cursor-pointer" (click)="handleDirectMessageItemClick()">
                 <img class="user-icon" src="../../../../assets/img/user1-icon.png" alt="user">
                 <p class="user-name">Frederick Beck (Du)</p>
             </div>

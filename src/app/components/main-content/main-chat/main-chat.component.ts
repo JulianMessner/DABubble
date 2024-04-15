@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { VisibilityService } from '../../../service/visibility.service';
 
 @Component({
   selector: 'app-main-chat',
@@ -9,4 +10,11 @@ import { Component } from '@angular/core';
 })
 export class MainChatComponent {
 
+  constructor(public visibilityService: VisibilityService) {}
+
+  showThreadChat() {
+    // Zeige die Thread-Chat-Komponente an
+    this.visibilityService.setMainChatVisible(false);
+    this.visibilityService.setThreadChatVisible(true);
+  }
 }

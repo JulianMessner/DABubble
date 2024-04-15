@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { VisibilityService } from '../../../service/visibility.service';
 
 @Component({
   selector: 'app-direct-message',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './direct-message.component.scss'
 })
 export class DirectMessageComponent {
-
+  constructor(private visibilityService: VisibilityService) {}
 }

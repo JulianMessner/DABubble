@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { VisibilityService } from '../../../service/header-logo-visibility.service';
+import { VisibilityService } from '../../../service/visibility.service';
 
 @Component({
   selector: 'app-header',
@@ -16,8 +16,11 @@ export class HeaderComponent implements OnInit {
 
   handleWorkspaceLogoClick() {
     if (window.innerWidth <= 800) {
+      this.visibilityService.setMainChatVisible(false);
+      this.visibilityService.setNavbarVisible(true);
       this.visibilityService.setLogoVisible(true);
       this.visibilityService.setWorkspaceContainerVisible(false);
+      this.visibilityService.setDirectMessageVisible(false);
     }
   }
 
