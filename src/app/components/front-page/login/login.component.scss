@@ -1,8 +1,14 @@
 .container {
     padding: 64px;
+    height: 100%;
 }
 
 .login-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: inherit;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,8 +16,9 @@
     .register-info-container {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 10px;
         align-items: end;
+        font-size: 18px;
 
         a {
             color: var(--purple-2);
@@ -29,3 +36,24 @@
         }
     }
 }
+
+.login-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+        color: var(--purple-1);
+        text-align: center;
+        padding-bottom: 16px;
+        font-size: 46px;
+    }
+
+    p {
+        font-size: 18px;
+        text-align: center;
+        padding-bottom: 32px;
+    }
+}
+
