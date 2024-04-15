@@ -72,4 +72,11 @@ form {
             opacity: 1;
         }
     }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        padding-top: 8px;
+    }
 }
