@@ -13,11 +13,13 @@ import { debug } from 'console';
 export class NavbarVerticalComponent implements OnInit {
   constructor(private visibilityService: VisibilityService) {}
 
+  ngOnInit(): void {}
+
   handleNavbarItemClick() {
     if (window.innerWidth <= 800) {
       this.visibilityService.setNavbarVisible(false);
       this.visibilityService.setMainChatVisible(true);
-      this.visibilityService.setLogoVisible(false); 
+      this.visibilityService.setLogoVisible(false);
       this.visibilityService.setWorkspaceContainerVisible(true);
     }
   }
@@ -31,8 +33,11 @@ export class NavbarVerticalComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    
+  showNewMessage() {
+    this.visibilityService.setNewMessageVisible(true);
+    this.visibilityService.setNavbarVisible(false);
+    this.visibilityService.setLogoVisible(false);
+    this.visibilityService.setWorkspaceContainerVisible(true);
   }
 
   channelsContentVisible: boolean = false;

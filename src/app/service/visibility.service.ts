@@ -11,6 +11,7 @@ export class VisibilityService {
   mainChatVisible: boolean = false;
   directMessageVisible: boolean = false;
   threadChatVisible: boolean = false;
+  newMessageVisible: boolean = false;
 
   setNavbarVisible(visible: boolean) {
     this.navbarVisible = visible;
@@ -34,5 +35,9 @@ export class VisibilityService {
 
   setThreadChatVisible(visible: boolean) {
     this.threadChatVisible = visible;
+  }
+
+  setNewMessageVisible(visible: boolean){
+    this.newMessageVisible = visible;
   }
 }

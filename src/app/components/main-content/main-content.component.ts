@@ -7,15 +7,17 @@ import { DirectMessageComponent } from './direct-message/direct-message.componen
 import { ThreadChatComponent } from './thread-chat/thread-chat.component';
 import { VisibilityService } from '../../service/visibility.service';
 import { CommonModule } from '@angular/common';
+import { NewMessageComponent } from './new-message/new-message.component';
 
 @Component({
   selector: 'app-main-content',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, NavbarVerticalComponent, MainChatComponent, DirectMessageComponent, ThreadChatComponent, CommonModule],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, NavbarVerticalComponent, MainChatComponent, DirectMessageComponent, ThreadChatComponent, NewMessageComponent],
   templateUrl: './main-content.component.html',
   styleUrl: './main-content.component.scss'
 })
 export class MainContentComponent {
 
   constructor(public visibilityService: VisibilityService) {}
+  
 }
