@@ -1,11 +1,11 @@
 <div class="main-content-container">
-    <app-header></app-header>
+    <app-header *ngIf="!visibilityService.newChannelVisible"></app-header>
     <div class="dashboard-container">
-        <app-navbar-vertical *ngIf="!visibilityService.mainChatVisible && !visibilityService.directMessageVisible && !visibilityService.threadChatVisible && !visibilityService.newMessageVisible"></app-navbar-vertical>
+        <app-navbar-vertical *ngIf="!visibilityService.mainChatVisible && !visibilityService.directMessageVisible && !visibilityService.threadChatVisible && !visibilityService.newMessageVisible && !visibilityService.newChannelVisible"></app-navbar-vertical>
         <app-main-chat *ngIf="visibilityService.mainChatVisible"></app-main-chat>
         <app-direct-message *ngIf="visibilityService.directMessageVisible"></app-direct-message>
         <app-thread-chat *ngIf="visibilityService.threadChatVisible"></app-thread-chat>
         <app-new-message *ngIf="visibilityService.newMessageVisible"></app-new-message>
-        <app-new-channel></app-new-channel>
+        <app-new-channel *ngIf="visibilityService.newChannelVisible"></app-new-channel>
     </div>
 </div>

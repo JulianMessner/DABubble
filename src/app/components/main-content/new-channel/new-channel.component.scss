@@ -3,14 +3,17 @@
     padding: 40px 20px 40px 20px;
     background-color: white;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .channel-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 80px;
     margin-bottom: 25px;
+    width: 100%;
 }
 
 .channel-description{
@@ -19,6 +22,7 @@
 
 .channel-name-container{
     margin-bottom: 25px;
+    width: 100%;
 }
 
 /* Input */

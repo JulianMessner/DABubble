@@ -42,6 +42,15 @@ export class NavbarVerticalComponent implements OnInit {
     }
   }
 
+  showNewChannel(){
+    if (window.innerWidth <= 800) {
+      this.visibilityService.setNewChannelVisible(true);
+      this.visibilityService.setNavbarVisible(false);
+      this.visibilityService.setLogoVisible(false);
+      this.visibilityService.setWorkspaceContainerVisible(true);
+    }
+  }
+
   channelsContentVisible: boolean = false;
   messagesContentVisible: boolean = false;
   animationClass: string = '';

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="channel-header">
         <p class="font-size-24-weight-700-black">Channel erstellen</p>
-        <img class="cursor-pointer" src="../../../../assets/img/close.png" alt="close">
+        <img (click)="closeNewChannel()" class="cursor-pointer" src="../../../../assets/img/close.png" alt="close">
     </div>
     <p class="channel-description">Channels dienen deinem Team zur Kommunikation. Am besten sollten sie themenbezogen
         sein #marketing zum Beispiel.</p>
@@ -22,5 +22,5 @@
             <input name="search" class="search-input" type="text" placeholder="Dein Text hier">
         </div>
     </div>
-    <button class="create-button">Erstellen</button>
+    <button class="main-btn">Erstellen</button>
 </div>

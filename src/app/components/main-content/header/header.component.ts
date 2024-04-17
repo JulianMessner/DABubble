@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit {
       this.visibilityService.setWorkspaceContainerVisible(false);
       this.visibilityService.setDirectMessageVisible(false);
       this.visibilityService.setNewMessageVisible(false);
+      this.visibilityService.setNewChannelVisible(false);
     // }
   }
 
