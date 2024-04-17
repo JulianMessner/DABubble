@@ -15,7 +15,7 @@ export class NavbarVerticalComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  handleNavbarItemClick() {
+  showChannel() {
     if (window.innerWidth <= 800) {
       this.visibilityService.setNavbarVisible(false);
       this.visibilityService.setMainChatVisible(true);
@@ -24,7 +24,7 @@ export class NavbarVerticalComponent implements OnInit {
     }
   }
 
-  handleDirectMessageItemClick() {
+  showDirectMessage() {
     if (window.innerWidth <= 800) {
       this.visibilityService.setNavbarVisible(false);
       this.visibilityService.setDirectMessageVisible(true);
@@ -34,10 +34,12 @@ export class NavbarVerticalComponent implements OnInit {
   }
 
   showNewMessage() {
-    this.visibilityService.setNewMessageVisible(true);
-    this.visibilityService.setNavbarVisible(false);
-    this.visibilityService.setLogoVisible(false);
-    this.visibilityService.setWorkspaceContainerVisible(true);
+    if (window.innerWidth <= 800) {
+      this.visibilityService.setNewMessageVisible(true);
+      this.visibilityService.setNavbarVisible(false);
+      this.visibilityService.setLogoVisible(false);
+      this.visibilityService.setWorkspaceContainerVisible(true);
+    }
   }
 
   channelsContentVisible: boolean = false;
@@ -47,16 +49,10 @@ export class NavbarVerticalComponent implements OnInit {
 
   toggleChannelsContent() {
     this.channelsContentVisible = !this.channelsContentVisible;
-    this.animationClass = this.channelsContentVisible
-      ? 'slide-in'
-      : 'slide-out';
   }
 
   toggleMessagesContent() {
     this.messagesContentVisible = !this.messagesContentVisible;
-    this.animationClass = this.channelsContentVisible
-      ? 'slide-in'
-      : 'slide-out';
   }
 
   toggleHover(hovering: boolean) {

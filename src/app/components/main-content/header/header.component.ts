@@ -15,20 +15,20 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {}
 
   handleWorkspaceLogoClick() {
-    if (window.innerWidth <= 800) {
+    // if (window.innerWidth <= 800) {
       this.visibilityService.setMainChatVisible(false);
       this.visibilityService.setNavbarVisible(true);
       this.visibilityService.setLogoVisible(true);
       this.visibilityService.setWorkspaceContainerVisible(false);
       this.visibilityService.setDirectMessageVisible(false);
       this.visibilityService.setNewMessageVisible(false);
-    }
+    // }
   }
 
   handleNavbarItemClick() {
-    if (window.innerWidth <= 800) {
+    // if (window.innerWidth <= 800) {
       this.visibilityService.setLogoVisible(false);
       this.visibilityService.setWorkspaceContainerVisible(true);
-    }
+    // }
   }
 }

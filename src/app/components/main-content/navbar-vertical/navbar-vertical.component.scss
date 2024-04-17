@@ -7,6 +7,12 @@
   gap: 25px;
 }
 
+.channel-name-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 /* Search Bar */
 
 .search-bar {
@@ -40,8 +46,8 @@
   }
 
   img.search-bar-img {
-    height: 28px;
-    width: 28px;
+    height: 24px;
+    width: 24px;
   }
 
   input[type="text"] {
@@ -78,7 +84,7 @@
     .workspace-name {
       font-weight: 700;
       font-size: 24px;
-      &:hover{
+      &:hover {
         color: var(--purple-3);
       }
     }
@@ -295,12 +301,12 @@
   }
 }
 
-.new-message-container{
+.new-message-container {
   position: fixed;
   right: 10px;
   bottom: 20px;
 }
-.new-message{
+.new-message {
   height: 60px;
   width: 60px;
 }
