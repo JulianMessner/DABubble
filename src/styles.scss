@@ -265,3 +265,70 @@ body {
     }
 }
 
+.d-none{
+  display: none;
+}
+
+.user-img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.font-size-14-lightgrey{
+  font-size: 14px;
+  color: var(--text-grey);
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.reverse-order{
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+}
+
+.flex-end-column{
+  align-items: flex-end;
+}
+
+@keyframes slideInFromTop {
+    0% {
+      transform: translateY(-30%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideOutToTop {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-30%);
+    }
+  }
+
+  @keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
