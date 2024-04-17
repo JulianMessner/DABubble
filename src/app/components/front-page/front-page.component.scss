@@ -1,0 +1,57 @@
+.front-page {
+    height: 100%;
+}
+
+.container {
+    padding: 64px;
+    height: 100%;
+}
+
+.login-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .register-info-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: end;
+        font-size: 18px;
+    }
+}
+
+a {
+    color: var(--purple-2);
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: 6px 8px;
+    border-radius: 32px;
+    transition: all .175s ease-in-out;
+    text-decoration: none;
+
+    &:hover {
+        color: var(--purple-3);
+        border-color: var(--purple-3);
+    }
+}
+
+.login-footer {
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+
+    .links-container {
+        display: flex;
+        gap: 28px;
+        font-size: 18px;
+    }
+}
