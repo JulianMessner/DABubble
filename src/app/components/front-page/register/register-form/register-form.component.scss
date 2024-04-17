@@ -75,10 +75,52 @@ form {
         }
     }
 
-    .buttons {
+    .button-wrapper {
         display: flex;
-        justify-content: center;
+        justify-content: end;
         gap: 32px;
         padding-top: 8px;
+    }
+
+    .legals-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        .checkbox-icon {
+            display: block;
+            width: 18px;
+            fill: var(--purple-2);
+            cursor: pointer;
+            transition: all .1s ease-in-out;
+
+            &:hover {
+                background-color: var(--bg-color);
+                fill: var(--purple-1);
+            }
+        }
+
+        .legals-info {
+            font-size: 16px;
+        }
+    
+        a {
+            color: var(--purple-2);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all .1s ease-in-out;
+    
+            &:hover {
+                border-color: var(--purple-2);
+            }
+        }
+
+        .error-icon {
+            fill: var(--rosa-error);
+        }
     }
 }
