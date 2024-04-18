@@ -75,6 +75,11 @@ form {
         }
     }
 
+    .p-rel {
+        position: relative;
+        margin-bottom: -24px;
+    }
+
     .button-wrapper {
         display: flex;
         justify-content: end;
