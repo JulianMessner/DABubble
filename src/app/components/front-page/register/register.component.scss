@@ -1,0 +1,48 @@
+.register-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .register-card {
+        position: relative;
+    }
+
+    .arrow-wrapper {
+        position: absolute;
+        top: 36px;
+        padding: 16px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all .1s ease-in-out;
+
+        &:hover {
+            background-color: var(--bg-color);
+        }
+
+        .arrow-icon {
+            display: block;
+            width: 16px;
+            height: 16px;
+            fill: black;
+            transition: all .1s ease-in-out;
+        }
+
+        &:hover .arrow-icon {
+            fill: var(--purple-1);
+        }
+    }
+
+    h2 {
+        color: var(--purple-1);
+        text-align: center;
+        padding-bottom: 20px;
+        font-size: 44px;
+    }
+
+    p {
+        font-size: 18px;
+        text-align: center;
+        padding-bottom: 32px;
+    }
+}

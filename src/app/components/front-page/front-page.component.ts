@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-front-page',
@@ -10,4 +10,17 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class FrontPageComponent {
 
+  isLogin!: boolean;
+
+  constructor(private router: Router) {
+    router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        if (event.url == '/login') {
+          this.isLogin = true;
+        } else {
+          this.isLogin = false;
+        }
+      }
+    })
+  }
 }
