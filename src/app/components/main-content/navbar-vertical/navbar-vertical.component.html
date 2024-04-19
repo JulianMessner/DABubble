@@ -1,0 +1,78 @@
+<div class="container">
+
+    <div class="search-bar">
+        <input name="search" class="search-input" type="text" placeholder="Gehe zu...">
+        <img class="search-bar-img cursor-pointer" src="../../../../assets/img/search.png" alt="search">
+    </div>
+
+    <div class="workspace-container">
+        <div class="workspace-logo-container">
+            <img class="workspace-logo-img" src="../../../../assets/img/workspace-logo.png" alt="workspace-logo">
+            <p class="workspace-name">Devspace</p>
+        </div>
+        <img class="edit-square-img" src="../../../../assets/img/edit-square.png" alt="edit-square">
+    </div>
+
+    <div class="channels-container">
+        <div class="channels-header">
+            <div class="channels-header-left cursor-pointer" (click)="toggleChannelsContent()">
+                <img class="drop-down-icon"
+                    [src]="channelsContentVisible ? '../../../../assets/img/arrow-drop-right.png' : '../../../../assets/img/arrow-drop-down.png'"
+                    alt="drop-icon">
+                <div class="channels-header-name-logo">
+                    <img src="../../../../assets/img/workspaces.png" alt="workspace-icon">
+                    <p class="channels-header-name cursor-pointer">Channels</p>
+                </div>
+            </div>
+            <div class="add-icon cursor-pointer">
+                <img class="add-icon-img" src="../../../../assets/img/add.png" alt="add-icon">
+            </div>
+        </div>
+        <div class="channels-content"
+            [ngClass]="{ 'animation-in': channelsContentVisible, 'animation-out': !channelsContentVisible }"
+            [ngStyle]="{ 'display': channelsContentVisible ? 'flex' : 'none' }">
+            <div class="channels-list cursor-pointer" (click)="handleNavbarItemClick()">
+                <img class="tag-icon" src="../../../../assets/img/tag.png" alt="tag">
+                <p class="channel-name">Entwicklerteam</p>
+            </div>
+            <div class="add-channel cursor-pointer">
+                <img class="add-circle-icon" src="../../../../assets/img/add_circle.png" alt="add_circle">
+                <p class="add-channel-text">Channel hinzufügen</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="messages-container">
+        <div class="messages-header">
+            <div class="messages-header-left cursor-pointer" (click)="toggleMessagesContent()">
+                <img class="drop-down-icon"
+                    [src]="messagesContentVisible ? '../../../../assets/img/arrow-drop-right.png' : '../../../../assets/img/arrow-drop-down.png'"
+                    alt="drop-icon">
+                <div class="messages-header-name-logo">
+                    <img src="../../../../assets/img/account_circle.png" alt="account-icon">
+                    <p class="messages-header-name cursor-pointer">Direktnachrichten</p>
+                </div>
+            </div>
+        </div>
+        <div class="messages-content"
+            [ngClass]="{ 'animation-in': messagesContentVisible, 'animation-out': !messagesContentVisible }"
+            [ngStyle]="{ 'display': messagesContentVisible ? 'flex' : 'none' }">
+            <div class="user-list cursor-pointer" (click)="handleDirectMessageItemClick()">
+                <img class="user-icon" src="../../../../assets/img/user1-icon.png" alt="user">
+                <p class="user-name">Frederick Beck (Du)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="new-message-container">
+        <img [src]="isHovering ? '../../../../assets/img/new-message-hover.png' : '../../../../assets/img/new-message.png'" 
+             alt="new-message" 
+             class="new-message cursor-pointer"
+             (mouseenter)="toggleHover(true)"
+             (mouseleave)="toggleHover(false)"
+             (click)="showNewMessage()">
+    </div>
+    
+
+
+</div>
