@@ -72,7 +72,7 @@ export class RegisterFormComponent {
         password: registerFormObj.password!
       }
       this.userService.setUser(user)
-      this.router.navigate(['/avatar']);
+      this.router.navigate(['/front/avatar']);
     }
   }
 }
