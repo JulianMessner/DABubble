@@ -7,7 +7,10 @@ import { MainContentComponent } from './components/main-content/main-content.com
 
 export const routes: Routes = [
     {
-        path: '', component: FrontPageComponent, children: [
+        path: 'front',
+        component: FrontPageComponent,
+        children: [
+            { path: '', redirectTo: 'login', pathMatch: 'full' },
             { path: 'login', component: LoginComponent },
             { path: 'register', component: RegisterComponent },
             { path: 'avatar', component: AvatarComponent }
