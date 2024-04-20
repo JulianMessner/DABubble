@@ -6,7 +6,7 @@ import { VisibilityService } from '../../../service/visibility.service';
   standalone: true,
   imports: [],
   templateUrl: './thread-chat.component.html',
-  styleUrl: './thread-chat.component.scss'
+  styleUrls: ['./thread-chat.component.scss', './desktop-thread-chat.component.scss']
 })
 export class ThreadChatComponent {
 

@@ -3,6 +3,11 @@
   background-color: white;
   padding-left: 0;
   padding-right: 0;
+  overflow-y: scroll;
+
+  .channel-header-left-desktop {
+    display: none;
+  }
 
   .conversation-container {
     display: flex;
@@ -28,6 +33,12 @@
     .add-user {
       height: 40px;
       width: 40px;
+    }
+  }
+
+  .close-icon{
+    &:hover{
+      content: url("../../../../assets/img/close-hover.svg");
     }
   }
 

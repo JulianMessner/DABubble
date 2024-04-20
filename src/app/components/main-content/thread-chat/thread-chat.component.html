@@ -1,10 +1,17 @@
 <div class="container">
     <div class="channel-name-header">
+        <div class="channel-header-left-desktop">
+            <span class="thread-header-text-desktop">Thread</span>
+            <div class="name-header-left-desktop cursor-pointer">
+                <img src="../../../../assets/img/tag.png" alt="tag" class="tag-image">
+                <p class="channel-name">Entwicklerteam</p>
+            </div>
+        </div>
         <div class="channel-header-left cursor-pointer">
             <img src="../../../../assets/img/tag.png" alt="tag" class="tag-image">
             <p class="channel-name">Entwicklerteam</p>
         </div>
-        <img class="cursor-pointer" (click)="closeThreadChat()" src="../../../../assets/img/close.png" alt="close">
+        <img class="close-icon cursor-pointer" (click)="closeThreadChat()" src="../../../../assets/img/close.svg" alt="close">
     </div>
 
     <div class="conversation-container">
@@ -59,9 +66,17 @@
         <input type="text" name="message" class="message-input" placeholder="Antworten...">
         <div class="input-bottom">
             <div class="icons-left cursor-pointer">
-                <img class="add-grey-img" src="../../../../assets/img/add-grey.png" alt="add">
-                <img src="../../../../assets/img/smiley.png" alt="emoji">
-                <img src="../../../../assets/img/email-icon.png" alt="@-icon">
+                <div class="hover-icon">
+                    <img class="add-file-icon" src="../../../../assets/img/add-file.svg" alt="add">
+                </div>
+                <div class="divider"></div>
+                <div class="hover-icon">
+                    <img class="smile-icon" src="../../../../assets/img/smile.svg" alt="emoji">
+                </div>
+                <div class="hover-icon">
+                    <img class="email-icon" src="../../../../assets/img/email.svg" alt="@-icon">
+                </div>
+
             </div>
             <img class="send-icon cursor-pointer" src="../../../../assets/img/send.svg" alt="send-icon">
         </div>

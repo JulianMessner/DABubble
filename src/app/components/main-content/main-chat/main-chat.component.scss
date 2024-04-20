@@ -21,6 +21,9 @@
   .add-user {
     height: 40px;
     width: 40px;
+    &:hover{
+      content: url('../../../../assets/img/add-user-hover.svg');
+    }
   }
 }
 
