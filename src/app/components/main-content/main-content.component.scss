@@ -5,18 +5,9 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-@media screen and (min-width: 800px) {
-  app-navbar-vertical {
-    height: 100vh;
-    display: flex;
-  }
-  .dashboard-container {
-    display: flex;
-    justify-content: space-between;
-    margin-left: 16px;
-    margin-right: 16px;
-    gap: 16px;
-  }
+.desktop-toggle-navbar {
+  display: none;
 }

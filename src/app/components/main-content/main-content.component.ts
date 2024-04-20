@@ -15,11 +15,14 @@ import { NewChannelComponent } from './new-channel/new-channel.component';
   standalone: true,
   imports: [CommonModule, RouterOutlet, HeaderComponent, NavbarVerticalComponent, MainChatComponent, DirectMessageComponent, ThreadChatComponent, NewMessageComponent, NewChannelComponent],
   templateUrl: './main-content.component.html',
-  styleUrl: './main-content.component.scss'
+  styleUrls: ['./main-content.component.scss', './desktop-main-content.component.scss']
 })
 export class MainContentComponent implements OnInit {
 
   screenWidth: number = window.innerWidth;
+  menuText: string = 'Workspace-Menü schließen';
+  menuImage: string = '../../../assets/img/toggle-menu.svg';
+  isMenuOpen: boolean = true;
 
   constructor(public visibilityService: VisibilityService) {}
   
@@ -36,5 +39,20 @@ export class MainContentComponent implements OnInit {
 
   isScreenDesktop(): boolean {
     return this.screenWidth >= 801;
+  }
+
+  toggleMenu() {
+    if (this.isMenuOpen) {
+      this.menuText = 'Workspace-Menü öffnen';
+      this.menuImage = '../../../assets/img/toggle-menu-show.svg';
+    } else {
+      this.menuText = 'Workspace-Menü schließen';
+      this.menuImage = '../../../assets/img/toggle-menu.svg';
+    }
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  isNavbarVisible(): boolean {
+    return this.isMenuOpen;
   }
 }
