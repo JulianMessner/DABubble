@@ -6,7 +6,7 @@ import { VisibilityService } from '../../../service/visibility.service';
   standalone: true,
   imports: [],
   templateUrl: './direct-message.component.html',
-  styleUrl: './direct-message.component.scss'
+  styleUrls: ['./direct-message.component.scss', './desktop-direct-message.component.scss']
 })
 export class DirectMessageComponent {
   constructor(private visibilityService: VisibilityService) {}

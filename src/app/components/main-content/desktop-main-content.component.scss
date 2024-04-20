@@ -1,6 +1,7 @@
 @media screen and (min-width: 800px) {
   app-navbar-vertical,
-  app-main-chat {
+  app-main-chat,
+  app-direct-message {
     height: 100vh;
     display: flex;
   }
