@@ -1,8 +1,8 @@
 <div class="container">
-    <img *ngIf="visibilityService.logoVisible" class="logo-img" src="../../../../assets/img/logo-dabubble.png" alt="logo">
+    <img *ngIf="visibilityService.logoVisible" class="logo-img" src="../../../../assets/img/logo-dabubble.svg" alt="logo">
     <div class="workspace-logo-container cursor-pointer"  (click)="handleWorkspaceLogoClick()" [style.display]="visibilityService.workspaceContainerVisible ? 'flex' : 'none'">        
         <img class="back-icon" src="../../../../assets/img/arrow-left.png" alt="arrow-left">
-        <img class="workspace-logo-img" src="../../../../assets/img/workspace-logo.png" alt="workspace-logo">
+        <img class="workspace-logo-img" src="../../../../assets/img/workspace-logo-img.svg" alt="workspace-logo">
         <p class="workspace-name">Devspace</p>
     </div>
 

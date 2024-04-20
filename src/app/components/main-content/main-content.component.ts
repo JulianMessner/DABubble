@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { NavbarVerticalComponent } from './navbar-vertical/navbar-vertical.component';
@@ -17,15 +17,24 @@ import { NewChannelComponent } from './new-channel/new-channel.component';
   templateUrl: './main-content.component.html',
   styleUrl: './main-content.component.scss'
 })
-export class MainContentComponent {
+export class MainContentComponent implements OnInit {
+
+  screenWidth: number = window.innerWidth;
 
   constructor(public visibilityService: VisibilityService) {}
   
-  isNavbarVisible() {
-    return window.innerWidth > 800 ||
-      (!this.visibilityService.mainChatVisible &&
-      !this.visibilityService.directMessageVisible &&
-      !this.visibilityService.threadChatVisible &&
-      !this.visibilityService.newMessageVisible);
+  ngOnInit(): void {
+    this.screenWidth = window.innerWidth;
+    window.addEventListener('resize', () => {
+      this.screenWidth = window.innerWidth;
+    });
+  }
+
+  isScreenMobile(): boolean {
+    return this.screenWidth <= 800;
+  }
+
+  isScreenDesktop(): boolean {
+    return this.screenWidth >= 801;
   }
 }

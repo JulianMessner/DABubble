@@ -6,37 +6,40 @@
     </div>
 
     <div class="workspace-container">
-        <div class="workspace-logo-container">
-            <img class="workspace-logo-img" src="../../../../assets/img/workspace-logo.png" alt="workspace-logo">
+        <div class="workspace-logo-container cursor-pointer">
+            <img class="workspace-logo-img" src="../../../../assets/img/workspace-logo-img.svg" alt="workspace-logo">
             <p class="workspace-name">Devspace</p>
         </div>
-        <img class="edit-square-img" src="../../../../assets/img/edit-square.png" alt="edit-square">
+        <img class="edit-square-img cursor-pointer"
+            (mouseover)="changeHoveredImage(true)" (mouseout)="changeHoveredImage(false)"
+            (mousedown)="changeClickedImage(true)" (mouseup)="changeClickedImage(false)" [src]="currentImage"
+            alt="edit-square">
     </div>
 
     <div class="channels-container">
         <div class="channels-header">
             <div class="channels-header-left cursor-pointer" (click)="toggleChannelsContent()">
                 <img class="drop-down-icon"
-                    [src]="channelsContentVisible ? '../../../../assets/img/arrow-drop-right.png' : '../../../../assets/img/arrow-drop-down.png'"
+                    [src]="channelsContentVisible ? '../../../../assets/img/arrow-drop-right.svg' : '../../../../assets/img/arrow-drop-down.svg'"
                     alt="drop-icon">
                 <div class="channels-header-name-logo">
-                    <img src="../../../../assets/img/workspaces.png" alt="workspace-icon">
+                    <img src="../../../../assets/img/workspaces.svg" alt="workspace-icon">
                     <p class="channels-header-name cursor-pointer">Channels</p>
                 </div>
             </div>
             <div class="add-icon cursor-pointer">
-                <img class="add-icon-img" src="../../../../assets/img/add.png" alt="add-icon">
+                <img class="add-icon-img" src="../../../../assets/img/add-icon.svg" alt="add-icon">
             </div>
         </div>
         <div class="channels-content"
             [ngClass]="{ 'animation-in': channelsContentVisible, 'animation-out': !channelsContentVisible }"
             [ngStyle]="{ 'display': channelsContentVisible ? 'flex' : 'none' }">
             <div class="channels-list cursor-pointer" (click)="showChannel()">
-                <img class="tag-icon" src="../../../../assets/img/tag.png" alt="tag">
+                <img class="tag-icon" src="../../../../assets/img/tag.svg" alt="tag">
                 <p class="channel-name">Entwicklerteam</p>
             </div>
             <div class="add-channel cursor-pointer" (click)="showNewChannel()">
-                <img class="add-circle-icon" src="../../../../assets/img/add_circle.png" alt="add_circle">
+                <img class="add-circle-icon" src="../../../../assets/img/add_circle_purple.svg" alt="add_circle">
                 <p class="add-channel-text">Channel hinzufügen</p>
             </div>
         </div>
@@ -46,10 +49,10 @@
         <div class="messages-header">
             <div class="messages-header-left cursor-pointer" (click)="toggleMessagesContent()">
                 <img class="drop-down-icon"
-                    [src]="messagesContentVisible ? '../../../../assets/img/arrow-drop-right.png' : '../../../../assets/img/arrow-drop-down.png'"
+                    [src]="messagesContentVisible ? '../../../../assets/img/arrow-drop-right.svg' : '../../../../assets/img/arrow-drop-down.svg'"
                     alt="drop-icon">
                 <div class="messages-header-name-logo">
-                    <img src="../../../../assets/img/account_circle.png" alt="account-icon">
+                    <img src="../../../../assets/img/account_circle.svg" alt="account-icon">
                     <p class="messages-header-name cursor-pointer">Direktnachrichten</p>
                 </div>
             </div>
@@ -65,14 +68,11 @@
     </div>
 
     <div class="new-message-container">
-        <img [src]="isHovering ? '../../../../assets/img/new-message-hover.png' : '../../../../assets/img/new-message.png'" 
-             alt="new-message" 
-             class="new-message cursor-pointer"
-             (mouseenter)="toggleHover(true)"
-             (mouseleave)="toggleHover(false)"
-             (click)="showNewMessage()">
+        <img [src]="isHovering ? '../../../../assets/img/new-message-button-hover.svg' : '../../../../assets/img/new-message-button-mobile.svg'"
+            alt="new-message" class="new-message cursor-pointer" (mouseenter)="toggleHover(true)"
+            (mouseleave)="toggleHover(false)" (click)="showNewMessage()">
     </div>
-    
+
 
 
 </div>

@@ -1,60 +1,64 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { VisibilityService } from '../../../service/visibility.service';
-import { debug } from 'console';
 
 @Component({
   selector: 'app-navbar-vertical',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './navbar-vertical.component.html',
-  styleUrl: './navbar-vertical.component.scss',
+  styleUrls: ['./navbar-vertical.component.scss', './desktop-navbar-vertical.component.scss'],
 })
+
 export class NavbarVerticalComponent implements OnInit {
-  constructor(private visibilityService: VisibilityService) {}
-
-  ngOnInit(): void {}
-
-  showChannel() {
-    if (window.innerWidth <= 800) {
-      this.visibilityService.setNavbarVisible(false);
-      this.visibilityService.setMainChatVisible(true);
-      this.visibilityService.setLogoVisible(false);
-      this.visibilityService.setWorkspaceContainerVisible(true);
-    }
-  }
-
-  showDirectMessage() {
-    if (window.innerWidth <= 800) {
-      this.visibilityService.setNavbarVisible(false);
-      this.visibilityService.setDirectMessageVisible(true);
-      this.visibilityService.setLogoVisible(false);
-      this.visibilityService.setWorkspaceContainerVisible(true);
-    }
-  }
-
-  showNewMessage() {
-    if (window.innerWidth <= 800) {
-      this.visibilityService.setNewMessageVisible(true);
-      this.visibilityService.setNavbarVisible(false);
-      this.visibilityService.setLogoVisible(false);
-      this.visibilityService.setWorkspaceContainerVisible(true);
-    }
-  }
-
-  showNewChannel(){
-    if (window.innerWidth <= 800) {
-      this.visibilityService.setNewChannelVisible(true);
-      this.visibilityService.setNavbarVisible(false);
-      this.visibilityService.setLogoVisible(false);
-      this.visibilityService.setWorkspaceContainerVisible(true);
-    }
-  }
-
   channelsContentVisible: boolean = false;
   messagesContentVisible: boolean = false;
   animationClass: string = '';
   isHovering: boolean = false;
+  currentImage: string = '../../../../assets/img/new-message.svg';
+  isClicked: boolean = false;
+  
+  constructor(private visibilityService: VisibilityService) {}
+
+  ngOnInit(): void {
+  }
+
+  showChannel() {
+    if (window.innerWidth <= 800) {
+      this.visibilityService.setLogoVisible(false);
+      this.visibilityService.setWorkspaceContainerVisible(true);
+    }
+    this.visibilityService.setNavbarVisible(true);
+    this.visibilityService.setMainChatVisible(true);
+  }
+
+  showDirectMessage() {
+    if (window.innerWidth <= 800) {
+      this.visibilityService.setLogoVisible(false);
+      this.visibilityService.setWorkspaceContainerVisible(true);
+    }
+    this.visibilityService.setNavbarVisible(true);
+    this.visibilityService.setDirectMessageVisible(true);
+
+  }
+
+  showNewMessage() {
+    if (window.innerWidth <= 800) {
+      this.visibilityService.setLogoVisible(false);
+      this.visibilityService.setWorkspaceContainerVisible(true);
+    }
+    this.visibilityService.setNavbarVisible(true);
+    this.visibilityService.setNewMessageVisible(true);
+  }
+
+  showNewChannel(){
+    if (window.innerWidth <= 800) {
+      this.visibilityService.setLogoVisible(false);
+      this.visibilityService.setWorkspaceContainerVisible(true);
+    }
+    this.visibilityService.setNavbarVisible(true);
+    this.visibilityService.setNewChannelVisible(true);
+  }
 
   toggleChannelsContent() {
     this.channelsContentVisible = !this.channelsContentVisible;
@@ -66,5 +70,21 @@ export class NavbarVerticalComponent implements OnInit {
 
   toggleHover(hovering: boolean) {
     this.isHovering = hovering;
+  }
+
+  changeHoveredImage(isHovered: boolean) {
+    if (isHovered) {
+      this.currentImage = '../../../../assets/img/new-message-hover.svg';
+    } else {
+      this.currentImage = '../../../../assets/img/new-message.svg';
+    }
+  }
+
+  changeClickedImage(isClicked: boolean) {
+    if (isClicked) {
+      this.currentImage = '../../../../assets/img/new-message-clicked.svg';
+    } else {
+      this.currentImage = '../../../../assets/img/new-message-hover.svg';
+    }
   }
 }

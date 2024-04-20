@@ -13,7 +13,6 @@ export class MainChatComponent {
   constructor(public visibilityService: VisibilityService) {}
 
   showThreadChat() {
-    // Zeige die Thread-Chat-Komponente an
     this.visibilityService.setMainChatVisible(false);
     this.visibilityService.setThreadChatVisible(true);
   }

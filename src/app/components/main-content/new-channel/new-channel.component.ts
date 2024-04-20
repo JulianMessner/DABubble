@@ -12,9 +12,11 @@ export class NewChannelComponent {
   constructor(public visibilityService: VisibilityService) {}
 
   closeNewChannel() {
-    this.visibilityService.setNewChannelVisible(false);
-    this.visibilityService.setNavbarVisible(true);
-    this.visibilityService.setLogoVisible(true);
-    this.visibilityService.setWorkspaceContainerVisible(false);
+    if (window.innerWidth <= 800) {
+      this.visibilityService.setNewChannelVisible(false);
+      this.visibilityService.setNavbarVisible(true);
+      this.visibilityService.setLogoVisible(true);
+      this.visibilityService.setWorkspaceContainerVisible(false);
+    }
   }
 }

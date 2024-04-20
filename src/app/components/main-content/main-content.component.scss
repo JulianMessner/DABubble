@@ -1,8 +1,22 @@
-.main-content-container{
-    margin: 0;
-    background-color: var(--bg-color);
-    width: 100vw;
+.main-content-container {
+  margin: 0;
+  background-color: var(--bg-color);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 800px) {
+  app-navbar-vertical {
     height: 100vh;
     display: flex;
-    flex-direction: column;
+  }
+  .dashboard-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 16px;
+    margin-right: 16px;
+    gap: 16px;
+  }
 }
