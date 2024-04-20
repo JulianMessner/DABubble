@@ -1,7 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { UserService } from '../../../services/user.service';
-import { RouterLink } from '@angular/router';
-import { User } from '@angular/fire/auth';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-avatar',
@@ -10,10 +9,11 @@ import { User } from '@angular/fire/auth';
   templateUrl: './avatar.component.html',
   styleUrl: './avatar.component.scss'
 })
-export class AvatarComponent {
+export class AvatarComponent implements OnInit {
 
   userService = inject(UserService);
-
+  router = inject(Router);
+  
   defaultAvatar = 'assets/images/default_avatar.svg';
   selectedAvatar = '';
 
@@ -28,12 +28,24 @@ export class AvatarComponent {
     'assets/images/avatar6.svg'
   ];
 
+  ngOnInit(): void {
+    if (!this.user) {
+      this.router.navigate(['/front/register']);
+    }
+  }
+
   selectAvatar(avatarPath: string) {
     this.userService.setAvatar(avatarPath);
     this.selectedAvatar = avatarPath;
   }
 
   addUser() {
-    // this.userService.getUser() add with firestoreService 
+    const user = this.userService.getUser();
+
+    if (user && !user.avatar) {
+      user.avatar = this.defaultAvatar;
+    }
+
+    // add user to firestore
   }
 }
