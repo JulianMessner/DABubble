@@ -1,0 +1,107 @@
+.avatar-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .avatar-card {
+        position: relative;
+    }
+
+    .arrow-wrapper {
+        position: absolute;
+        top: 38px;
+        left: 32px;
+        padding: 16px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all .1s ease-in-out;
+
+        &:hover {
+            background-color: var(--bg-color);
+        }
+
+        .arrow-icon {
+            display: block;
+            width: 16px;
+            height: 16px;
+            fill: black;
+            transition: all .1s ease-in-out;
+        }
+
+        &:hover .arrow-icon {
+            fill: var(--purple-1);
+        }
+    }
+
+    h2 {
+        color: var(--purple-1);
+        text-align: center;
+        padding-bottom: 20px;
+        font-size: 44px;
+    }
+
+    .avatar-lrg-wrapper {
+        display: flex;
+        justify-content: center;
+
+        img {
+            clip-path: circle(50%);
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+    }
+
+    .user-name {
+        font-weight: bold;
+        font-size: 28px;
+        text-align: center;
+        padding-top: 24px;
+        padding-bottom: 8px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .choose-info {
+        text-align: start;
+        padding-bottom: 12px;
+    }
+
+    .avatars {
+        display: flex;
+        justify-content: space-between;
+
+        .avatar-wrapper {
+            img {
+                display: block;
+                border-radius: 50%;
+                border: 3px solid transparent;
+                cursor: pointer;
+
+                &:hover {
+                    border-color: rgba(0, 0, 0, 0.2);
+                }
+            }
+        }
+    }
+
+    .upload-image-container {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+        padding-top: 24px;
+
+        input {
+            display: none;
+        }
+    }
+
+    .button-wrapper {
+        display: flex;
+        justify-content: end;
+        padding-top: 24px;
+    }
+}
