@@ -1,7 +1,14 @@
+.content-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
 .main-content-container {
   margin: 0;
   background-color: var(--bg-color);
   width: 100vw;
+  max-width: 1440px;
   height: 100vh;
   display: flex;
   flex-direction: column;

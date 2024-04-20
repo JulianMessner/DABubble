@@ -1,5 +1,6 @@
 @media screen and (min-width: 800px) {
-  app-navbar-vertical {
+  app-navbar-vertical,
+  app-main-chat {
     height: 100vh;
     display: flex;
   }
@@ -19,6 +20,7 @@
     border-radius: 0 0 30px 30px;
     min-width: 330px;
     min-height: 80px;
+    z-index: 1;
 
     .toggle-text {
       font-weight: 500;

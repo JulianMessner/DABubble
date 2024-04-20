@@ -1,14 +1,18 @@
-<div class="main-content-container">
-    <app-header *ngIf="!visibilityService.newChannelVisible"></app-header>
-    <div class="desktop-toggle-navbar cursor-pointer" (click)="toggleMenu()">
-        <span class="toggle-text">{{ menuText }}</span>
-        <img [src]="menuImage" alt="toggle-menu" class="toggle-img">
-    </div>    
-    <div class="dashboard-container">
-        <app-navbar-vertical *ngIf="isScreenDesktop() && isNavbarVisible() || (isScreenMobile() && !visibilityService.mainChatVisible && !visibilityService.directMessageVisible && !visibilityService.threadChatVisible && !visibilityService.newMessageVisible && !visibilityService.newChannelVisible)"></app-navbar-vertical>        <app-main-chat *ngIf="visibilityService.mainChatVisible"></app-main-chat>
-        <app-direct-message *ngIf="visibilityService.directMessageVisible"></app-direct-message>
-        <app-thread-chat *ngIf="visibilityService.threadChatVisible"></app-thread-chat>
-        <app-new-message *ngIf="visibilityService.newMessageVisible"></app-new-message>
-        <app-new-channel *ngIf="visibilityService.newChannelVisible"></app-new-channel>
+<div class="content-container">
+    <div class="main-content-container">
+        <app-header *ngIf="!visibilityService.newChannelVisible"></app-header>
+        <div class="desktop-toggle-navbar cursor-pointer" (click)="toggleMenu()">
+            <span class="toggle-text">{{ menuText }}</span>
+            <img [src]="menuImage" alt="toggle-menu" class="toggle-img">
+        </div>
+        <div class="dashboard-container">
+            <app-navbar-vertical
+                *ngIf="isScreenDesktop() && isNavbarVisible() || (isScreenMobile() && !visibilityService.mainChatVisible && !visibilityService.directMessageVisible && !visibilityService.threadChatVisible && !visibilityService.newMessageVisible && !visibilityService.newChannelVisible)"></app-navbar-vertical>
+            <app-main-chat *ngIf="visibilityService.mainChatVisible"></app-main-chat>
+            <app-direct-message *ngIf="visibilityService.directMessageVisible"></app-direct-message>
+            <app-thread-chat *ngIf="visibilityService.threadChatVisible"></app-thread-chat>
+            <app-new-message *ngIf="visibilityService.newMessageVisible"></app-new-message>
+            <app-new-channel *ngIf="visibilityService.newChannelVisible"></app-new-channel>
+        </div>
     </div>
 </div>

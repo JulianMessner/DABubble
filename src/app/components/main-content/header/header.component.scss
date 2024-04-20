@@ -9,6 +9,7 @@
   left: 50%;
   transform: translateX(-50%);
   gap: 10px;
+  z-index: 1;
 
   .logo-img {
     width: 160px;
@@ -118,6 +119,9 @@ input:-webkit-autofill:active {
 }
 
 @media screen and (min-width: 800px) {
+  .container{
+    z-index: 1;
+  }
   .search-bar-desktop {
     display: flex;
   }
