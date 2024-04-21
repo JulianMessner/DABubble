@@ -6,17 +6,20 @@ import { VisibilityService } from '../../../service/visibility.service';
   standalone: true,
   imports: [],
   templateUrl: './new-channel.component.html',
-  styleUrl: './new-channel.component.scss',
+  styleUrls: [
+    './new-channel.component.scss',
+    './desktop-new-channel.component.scss',
+  ],
 })
 export class NewChannelComponent {
   constructor(public visibilityService: VisibilityService) {}
 
   closeNewChannel() {
     if (window.innerWidth <= 800) {
-      this.visibilityService.setNewChannelVisible(false);
-      this.visibilityService.setNavbarVisible(true);
       this.visibilityService.setLogoVisible(true);
       this.visibilityService.setWorkspaceContainerVisible(false);
     }
+    this.visibilityService.setNewChannelVisible(false);
+    this.visibilityService.setNavbarVisible(true);
   }
 }

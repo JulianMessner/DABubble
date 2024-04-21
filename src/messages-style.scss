@@ -48,6 +48,7 @@
   background-color: #eceefe;
   border-radius: 0 30px 30px 30px;
   font-size: 17px;
+  max-width: 600px;
 }
 
 .user-a-message-radius-bg {
@@ -84,101 +85,105 @@
 /*Message Input Field*/
 
 .send-message-container {
-    margin-right: 16px;
-    margin-left: 16px;
-    border: 1px solid #adb0d9;
-    border-radius: 20px;
-    padding: 20px;
+  margin-right: 16px;
+  margin-left: 16px;
+  border: 1px solid #adb0d9;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: white;
+  position: fixed;
+  width: auto;
+  right: 0;
+  left: 0;
+  bottom: 20px;
+}
+
+.input-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .send-icon {
+    &:hover {
+      content: url("assets/img/send-hover.svg");
+    }
+  }
+}
+
+.icons-left {
+  display: flex;
+  gap: 10px;
+}
+
+.hover-icon {
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    background-color: #ebeffe;
+    border-radius: 50%;
+  }
+}
+
+.add-file-icon {
+  height: 24px;
+  width: 24px;
+  &:hover {
+    content: url("./assets/img/add-file-hover.svg");
+  }
+}
+
+.divider {
+  height: 30px;
+  border-left: 1px solid #adb0d9;
+}
+
+.smile-icon {
+  height: 24px;
+  width: 24px;
+  &:hover {
+    content: url("./assets/img/smile-hover.svg");
+  }
+}
+
+.email-icon {
+  height: 24px;
+  width: 24px;
+  &:hover {
+    content: url("./assets/img/email-hover.svg");
+  }
+}
+
+.message-input {
+  width: 100%;
+  height: auto;
+  min-height: 50px;
+  border: none;
+  outline: none;
+  &:focus {
     background-color: white;
-    position: fixed;
-    width: auto;
-    right: 0;
-    left: 0;
-    bottom: 20px;
+  }
+  &::placeholder {
+    font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+      "Helvetica Neue", sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 32px;
+    text-align: left;
+    color: #686868 !important;
   }
 
-  .input-bottom{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .send-icon{
-      &:hover{
-          content: url("assets/img/send-hover.svg");
-      }
-    }
+  .message-input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: #686868 !important;
   }
+}
 
-  .icons-left{
-    display: flex;
-    gap: 10px;
+@media screen and (min-width: 800px) {
+  .send-message-container {
+    margin-left: 50px;
+    margin-right: 50px;
   }
-
-  .hover-icon{
-    height: 32px;
-    width: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &:hover{
-      background-color: #ebeffe;
-      border-radius: 50%;
-    }
-  }
-
-  .add-file-icon{
-    height: 24px;
-    width: 24px;
-    &:hover{
-      content: url('./assets/img/add-file-hover.svg');
-    }
-  }
-
-  .divider{
-    height: 30px;
-    border-left: 1px solid #adb0d9;
-  }
-
-  .smile-icon{
-    height: 24px;
-    width: 24px;
-    &:hover{
-      content: url('./assets/img/smile-hover.svg');
-    }
-  }
-
-  .email-icon{
-    height: 24px;
-    width: 24px;
-    &:hover{
-      content: url('./assets/img/email-hover.svg');
-    }
-  }
-  
-  .message-input {
-    width: 100%;
-    height: auto;
-    min-height: 50px;
-    border: none;
-    outline: none;
-    &:focus{
-        background-color: white;
-    }
-    &::placeholder {
-      font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      font-size: 17px;
-      font-weight: 400;
-      line-height: 32px;
-      text-align: left;
-      color: #686868 !important;
-    }
-
-    .message-input:-webkit-autofill {
-        -webkit-box-shadow: 0 0 0 30px white inset !important;
-        -webkit-text-fill-color: #686868 !important;
-      }
-  }
-  
-  // .add-grey-img {
-  //   border-right: 1px solid #adb0d9;
-  //   margin-right: 5px;
-  // }
+}

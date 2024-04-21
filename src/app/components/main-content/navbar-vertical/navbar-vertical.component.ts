@@ -30,6 +30,8 @@ export class NavbarVerticalComponent implements OnInit {
     }
     this.visibilityService.setNavbarVisible(true);
     this.visibilityService.setMainChatVisible(true);
+    this.visibilityService.setDirectMessageVisible(false);
+    this.visibilityService.setNewMessageVisible(false);
   }
 
   showDirectMessage() {
@@ -39,6 +41,9 @@ export class NavbarVerticalComponent implements OnInit {
     }
     this.visibilityService.setNavbarVisible(true);
     this.visibilityService.setDirectMessageVisible(true);
+    this.visibilityService.setMainChatVisible(false);
+    this.visibilityService.setThreadChatVisible(false);
+    this.visibilityService.setNewMessageVisible(false);
 
   }
 
@@ -49,6 +54,9 @@ export class NavbarVerticalComponent implements OnInit {
     }
     this.visibilityService.setNavbarVisible(true);
     this.visibilityService.setNewMessageVisible(true);
+    this.visibilityService.setMainChatVisible(false);
+    this.visibilityService.setThreadChatVisible(false);
+    this.visibilityService.setDirectMessageVisible(false);
   }
 
   showNewChannel(){

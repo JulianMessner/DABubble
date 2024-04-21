@@ -131,13 +131,16 @@ input:-webkit-autofill:active {
       display: flex;
       font-size: 23px;
     }
+    .user-options-desktop{
+      display: flex;
+    }
   }
 }
 
 @media screen and (min-width: 800px) and (max-width: 1000px) {
   .search-bar-desktop{
     input.search-input{
-      min-width: 300px;
+      min-width: 280px;
     }
   }
 }

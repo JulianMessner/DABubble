@@ -3,7 +3,8 @@
   background-color: white;
   padding-left: 0;
   padding-right: 0;
-
+  overflow-y: auto;
+  
   .conversation-container {
     display: flex;
     flex-direction: column;

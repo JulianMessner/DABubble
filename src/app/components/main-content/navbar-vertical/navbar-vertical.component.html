@@ -13,7 +13,7 @@
         <img class="edit-square-img cursor-pointer"
             (mouseover)="changeHoveredImage(true)" (mouseout)="changeHoveredImage(false)"
             (mousedown)="changeClickedImage(true)" (mouseup)="changeClickedImage(false)" [src]="currentImage"
-            alt="edit-square">
+            alt="edit-square" (click)="showNewMessage()">
     </div>
 
     <div class="channels-container">
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="add-icon cursor-pointer">
-                <img class="add-icon-img" src="../../../../assets/img/add-icon.svg" alt="add-icon">
+                <img class="add-icon-img" (click)="showNewChannel()" src="../../../../assets/img/add-icon.svg" alt="add-icon">
             </div>
         </div>
         <div class="channels-content"

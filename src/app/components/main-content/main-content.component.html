@@ -1,6 +1,6 @@
 <div class="content-container">
     <div class="main-content-container">
-        <app-header *ngIf="!visibilityService.newChannelVisible"></app-header>
+        <app-header *ngIf=" isScreenMobile() && !visibilityService.newChannelVisible || isScreenDesktop()"></app-header>
         <div class="desktop-toggle-navbar cursor-pointer" (click)="toggleMenu()">
             <span class="toggle-text">{{ menuText }}</span>
             <img [src]="menuImage" alt="toggle-menu" class="toggle-img">

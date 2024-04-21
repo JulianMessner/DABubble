@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './new-message.component.html',
-  styleUrl: './new-message.component.scss'
+  styleUrls: ['./new-message.component.scss', './desktop-new-message.component.scss']
 })
 export class NewMessageComponent {
 

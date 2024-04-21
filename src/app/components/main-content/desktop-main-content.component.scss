@@ -2,13 +2,16 @@
   app-navbar-vertical,
   app-main-chat,
   app-direct-message,
-  app-thread-chat {
+  app-thread-chat,
+  app-new-channel,
+  app-new-message {
     height: 100vh;
     display: flex;
+    width: 100%;
   }
 
   .desktop-toggle-navbar {
-    position: fixed;
+    position: absolute;
     top: 70%;
     left: -140px;
     transform: rotate(-90deg);
