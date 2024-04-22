@@ -24,13 +24,22 @@
             <input type="file" id="img-upload">
         </div>
         <div class="button-wrapper">
-            <button class="main-btn" (click)="addUser()" [disabled]="isAdding">Konto erstellen</button>
+            <button class="main-btn" (click)="addUser()" [disabled]="userCreationState === 'adding'">Konto erstellen</button>
         </div>
-        @if (userCreationSuccess) {
-            <p>user created successfully</p>
-        }
-        @if (userCreationError) {
-            <p>{{ errorMessage }}</p>
+        @switch (userCreationState) {
+            @case ('adding') {
+                <span class="loader"></span>
+            }
+            @case ('success') {
+                <div class="success-overlay">
+                    <div class="success-card">
+                        <p>user created successfully</p>
+                    </div>
+                </div>
+            }
+            @case ('error') {
+                <p>{{ errorMessage }}</p>
+            }
         }
     </div>
 </div>

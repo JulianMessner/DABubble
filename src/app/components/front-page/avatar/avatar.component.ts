@@ -4,6 +4,8 @@ import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { User } from '../../../models/user.interface';
 
+type UserCreation = 'initial' | 'adding' | 'success' | 'error';
+
 @Component({
   selector: 'app-avatar',
   standalone: true,
@@ -22,7 +24,7 @@ export class AvatarComponent implements OnInit {
 
   user = this.userService.getUser();
 
-  isAdding = false;
+  userCreationState: UserCreation = 'initial';
   userCreationSuccess = false;
   userCreationError = false;
   errorMessage = '';
@@ -48,23 +50,20 @@ export class AvatarComponent implements OnInit {
   }
 
   async addUser() {
-    this.isAdding = true;
+    this.userCreationState = 'adding';
     const user = this.getUserWithAvatar();
 
     try {
       await this.authService.createUser(user.email, user.password);
-      // add loader
       await this.showSuccess();
 
       // const userWithoutPw = this.userService.getUserWithoutPassword(user);
       // this.firebaseService.addUser(userWithoutPw);
 
-      this.isAdding = false;
       // this.router.navigate(['/front/login']);
     } catch (e) {
       const err = e as Error;
       await this.showError(err.message);
-      this.isAdding = false;
     }
   }
 
@@ -81,11 +80,11 @@ export class AvatarComponent implements OnInit {
   }
 
   async showSuccess() {
-    this.userCreationSuccess = true;
+    this.userCreationState = 'success';
 
     await new Promise<void>((resolve) => {
       setTimeout(() => {
-        this.userCreationSuccess = false;
+        this.userCreationState = 'initial';
         resolve();
       }, 3000);
     });
@@ -93,11 +92,11 @@ export class AvatarComponent implements OnInit {
 
   async showError(errorMessage: string) {
     this.errorMessage = errorMessage;
-    this.userCreationError = true;
+    this.userCreationState = 'error';
 
     await new Promise<void>((resolve) => {
       setTimeout(() => {
-        this.userCreationError = false;
+        this.userCreationState = 'initial';
         resolve();
       }, 3000);
     })
