@@ -18,7 +18,7 @@
             </div>
 
 
-            <div class="channel-thread-container">
+            <div class="channel-thread-container" (mouseenter)="visibilityService.hideEditMessageText()">
                 <img src="../../../../assets/img/user1-icon.png" alt="user-icon" class="user-img">
                 <div class="user-message-container">
                     <div class="name-time">
@@ -40,11 +40,11 @@
             <div class="channel-thread-container reverse-order">
                 <img src="../../../../assets/img/user1-icon.png" alt="user-icon" class="user-img">
                 <div class="user-message-container flex-end-column">
-                    <div class="name-time">
+                    <div class="name-time reverse-name-time" (mouseenter)="visibilityService.hideEditMessageText()">
                         <p class="user-name cursor-pointer ">Frederik Beck</p>
                         <p class="font-size-14-lightgrey">15:06 Uhr</p>
                     </div>
-                    <p class="user-message user-a-message-radius-bg cursor-pointer">Lorem ipsum, dolor sit amet
+                    <p class="user-message user-a-message-radius-bg cursor-pointer" (mouseleave)="visibilityService.hideEditMessageText()">Lorem ipsum, dolor sit amet
                         consectetur adipisicing elit.
                         Dignissimos delectus molestias pariatur consectetur eum suscipit minus! Sapiente hic ex, optio
                         reprehenderit saepe eius, id amet distinctio pariatur odit magni delectus.</p>
@@ -55,6 +55,13 @@
                     <div class="thread-reply-container cursor-pointer">
                         <a href="#" class="forward-to-reply text-center" (click)="showThreadChat()"></a>
                         <p class="font-size-14-lightgrey text-center"></p>
+                    </div>
+                    <div class="overlay-icons">
+                        <img class="reaction-icon cursor-pointer" src="../../../../assets/img/reaction.svg" alt="emoji" (mouseenter)="visibilityService.hideEditMessageText()">
+                        <img class="more-icon cursor-pointer" src="../../../../assets/img/more.svg" alt="more options" (mouseenter)="visibilityService.showEditMessageText()">
+                    </div>
+                    <div class="overlay-text" *ngIf="visibilityService.editMessageOverlayVisible">
+                        <span class="cursor-pointer">Nachricht bearbeiten</span>
                     </div>
                 </div>
             </div>

@@ -13,6 +13,7 @@ export class VisibilityService {
   threadChatVisible: boolean = false;
   newMessageVisible: boolean = false;
   newChannelVisible: boolean = false;
+  editMessageOverlayVisible: boolean = false;
 
   setNavbarVisible(visible: boolean) {
     this.navbarVisible = visible;
@@ -44,5 +45,13 @@ export class VisibilityService {
 
   setNewChannelVisible(visible: boolean){
     this.newChannelVisible = visible;
+  }
+
+  showEditMessageText() {
+    this.editMessageOverlayVisible = true;
+  }
+
+  hideEditMessageText() {
+    this.editMessageOverlayVisible = false;
   }
 }

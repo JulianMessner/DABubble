@@ -36,11 +36,16 @@
 .name-time {
   display: flex;
   align-items: center;
+  width: 100%;
   gap: 20px;
   .user-name {
     font-weight: 700;
     font-size: 18px;
   }
+}
+
+.reverse-name-time {
+  justify-content: flex-end;
 }
 
 .user-message {
@@ -65,6 +70,12 @@
 .add-reaction {
   height: 34px;
   width: 34px;
+}
+
+.reverse-order{
+  &:hover{
+    background-color: #ECEEFE;
+  }
 }
 
 /*Reply to Thread*/
@@ -180,6 +191,77 @@
     -webkit-text-fill-color: #686868 !important;
   }
 }
+
+/*edit popup*/
+
+.reverse-order {
+  position: relative;
+}
+
+
+.overlay-icons,
+.overlay-text {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 12px;
+  z-index: 10;
+  background-color: white;
+}
+
+.overlay-icons {
+  display: none;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  border: 1px solid #adb0d9;
+  border-radius: 25px 25px 0 25px;
+  padding: 3px 13px;
+}
+
+.overlay-text {
+  display: flex;
+  width: auto;
+  top: 30px;
+  left: 85px;
+  box-shadow: 0px 6px 14px 0px #00000033;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 0 25px 25px 25px;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 500;
+  span{
+    border-radius: 30px;
+    padding: 10px 20px;
+    &:hover{
+      background-color: #ECEEFE;
+      color: #535AF1;
+      font-weight: 700;
+    }
+  }
+}
+
+.user-message-container:hover .overlay-icons {
+  display: flex;
+}
+
+.reaction-icon {
+  height: 32px;
+  width: 32px;
+  &:hover {
+    content: url("./assets/img/reaction-hover.svg");
+  }
+}
+
+.more-icon {
+  height: 32px;
+  width: 32px;
+  &:hover {
+    content: url("./assets/img/more-hover.svg");
+  }
+}
+
 
 @media screen and (min-width: 800px) {
   .send-message-container {

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { VisibilityService } from '../../../service/visibility.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-thread-chat',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './thread-chat.component.html',
   styleUrls: ['./thread-chat.component.scss', './desktop-thread-chat.component.scss']
 })
