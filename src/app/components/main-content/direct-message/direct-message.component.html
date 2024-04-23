@@ -46,16 +46,34 @@
             <div class="channel-thread-container reverse-order">
                 <img src="../../../../assets/img/user1-icon.png" alt="user-icon" class="user-img">
                 <div class="user-message-container flex-end-column">
-                    <div class="name-time reverse-name-time" (mouseenter)="visibilityService.hideEditMessageText()">
+                    <div *ngIf="!isEditing" class="name-time reverse-name-time" (mouseenter)="visibilityService.hideEditMessageText()">
                         <p class="user-name cursor-pointer">Frederik Beck</p>
                         <p class="font-size-14-lightgrey">15:06 Uhr</p>
                     </div>
-                    <p class="user-message user-a-message-radius-bg cursor-pointer" (mouseleave)="visibilityService.hideEditMessageText()">Lorem ipsum, dolor sit amet
-                        consectetur adipisicing elit.
-                        Dignissimos delectus molestias pariatur consectetur eum suscipit minus! Sapiente hic ex,
-                        optio
-                        reprehenderit saepe eius, id amet distinctio pariatur odit magni delectus.</p>
-                    <div class="reaction-container">
+
+                    <div class="textfield" style="position: relative;">
+                        <div *ngIf="!isEditing">
+                            <p class="user-message user-a-message-radius-bg cursor-pointer">{{ originalMessage }}</p>
+                        </div>
+
+                        <div *ngIf="isEditing" class="edit-textarea-buttons">
+                            <textarea class="user-message user-a-message-radius-bg textarea cursor-pointer"
+                                (mouseleave)="visibilityService.hideEditMessageText()" contenteditable="true"
+                                [(ngModel)]="editedMessage">{{ originalMessage }}</textarea>
+                            <div class="edit-open-icons">
+                                <div class="hover-icon">
+                                    <img class="smile-icon cursor-pointer" src="../../../../assets/img/smile.svg" alt="emoji">
+                                </div>
+                                <div class="edit-message-buttons">
+                                    <button (click)="cancelEdit()" class="secondary-btn">Abbrechen</button>
+                                    <button (click)="saveEdit()" class="main-btn">Speichern</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="reaction-container" *ngIf="!isEditing">
                         <img src="../../../../assets/img/reaction.svg" alt="add-reaction"
                             class="add-reaction cursor-pointer">
                     </div>
@@ -63,12 +81,12 @@
                         <a href="#" class="forward-to-reply"></a>
                         <p class="font-size-14-lightgrey"></p>
                     </div>
-                    <div class="overlay-icons">
+                    <div class="overlay-icons" *ngIf="!isEditing">
                         <img class="reaction-icon cursor-pointer" src="../../../../assets/img/reaction.svg" alt="emoji" (mouseenter)="visibilityService.hideEditMessageText()">
                         <img class="more-icon cursor-pointer" src="../../../../assets/img/more.svg" alt="more options" (mouseenter)="visibilityService.showEditMessageText()">
                     </div>
-                    <div class="overlay-text" *ngIf="visibilityService.editMessageOverlayVisible">
-                        <span class="cursor-pointer">Nachricht bearbeiten</span>
+                    <div class="overlay-text" *ngIf="visibilityService.editMessageOverlayVisible && !isEditing">
+                        <span class="cursor-pointer" (click)="enableEdit()">Nachricht bearbeiten</span>
                     </div>
                 </div>
             </div>

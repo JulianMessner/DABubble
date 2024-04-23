@@ -56,6 +56,10 @@
   max-width: 600px;
 }
 
+.channel-thread-container.reverse-order{
+  padding: 10px 16px;
+}
+
 .user-a-message-radius-bg {
   border-radius: 30px 0 30px 30px !important;
   background-color: #797ef3 !important;
@@ -242,7 +246,7 @@
   }
 }
 
-.user-message-container:hover .overlay-icons {
+.reverse-order:hover .overlay-icons {
   display: flex;
 }
 
@@ -260,6 +264,48 @@
   &:hover {
     content: url("./assets/img/more-hover.svg");
   }
+}
+
+.textfield {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-textarea-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  border: 1px solid #adb0d9;
+  padding: 20px;
+  gap: 16px;
+  max-width: 700px;
+}
+
+.textarea {
+  width: 100%;
+  background-color: transparent !important;
+  color: #686868;
+  border: none;
+  resize: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+.edit-open-icons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.edit-message-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 

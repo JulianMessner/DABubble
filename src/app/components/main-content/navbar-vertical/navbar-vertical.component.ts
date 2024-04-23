@@ -63,6 +63,10 @@ export class NavbarVerticalComponent implements OnInit {
     if (window.innerWidth <= 800) {
       this.visibilityService.setLogoVisible(false);
       this.visibilityService.setWorkspaceContainerVisible(true);
+      this.visibilityService.setMainChatVisible(false);
+      this.visibilityService.setThreadChatVisible(false);
+      this.visibilityService.setDirectMessageVisible(false);
+      this.visibilityService.setNewMessageVisible(false);
     }
     this.visibilityService.setNavbarVisible(true);
     this.visibilityService.setNewChannelVisible(true);

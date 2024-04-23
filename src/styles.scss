@@ -309,6 +309,11 @@ body {
   align-items: flex-end;
 }
 
+.message-a-flex-end{
+  align-items: flex-end;
+  width: 100%;
+}
+
 @keyframes slideInFromTop {
     0% {
       transform: translateY(-30%);
