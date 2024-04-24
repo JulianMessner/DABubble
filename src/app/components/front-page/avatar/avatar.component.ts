@@ -60,10 +60,10 @@ export class AvatarComponent implements OnInit {
       // const userWithoutPw = this.userService.getUserWithoutPassword(user);
       // this.firebaseService.addUser(userWithoutPw);
 
-      // this.router.navigate(['/front/login']);
+      this.router.navigate(['/front/login']);
     } catch (e) {
       const err = e as Error;
-      await this.showError(err.message);
+      this.showError(err.message);
     }
   }
 
@@ -75,7 +75,7 @@ export class AvatarComponent implements OnInit {
         user.avatar = this.defaultAvatar;
       }
     }
-    
+
     return user!;
   }
 
@@ -90,15 +90,17 @@ export class AvatarComponent implements OnInit {
     });
   }
 
-  async showError(errorMessage: string) {
-    this.errorMessage = errorMessage;
-    this.userCreationState = 'error';
+  showError(errorMessage: string) {
+    if (errorMessage.includes('Firebase')) {
+      let words = errorMessage.split(' ');
+      words = words.slice(1);
+      const errorMessageClean = words.join(' ');
 
-    await new Promise<void>((resolve) => {
-      setTimeout(() => {
-        this.userCreationState = 'initial';
-        resolve();
-      }, 3000);
-    })
+      this.errorMessage = errorMessageClean;
+    } else {
+      this.errorMessage = errorMessage;
+    }
+
+    this.userCreationState = 'error';
   }
 }

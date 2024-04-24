@@ -15,7 +15,7 @@ export class FrontPageComponent {
   constructor(private router: Router) {
     router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        if (event.url == '/front/login') {
+        if (event.url == '/front' || event.url == '/front/login') {
           this.isLogin = true;
         } else {
           this.isLogin = false;
