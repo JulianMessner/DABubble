@@ -2,6 +2,9 @@
     <div class="login-card fp-card">
         <h2>Anmeldung</h2>
         <p>Wir empfehlen dir, die E-Mail-Adresse zu nutzen, die du bei der Arbeit verwendest.</p>
-        <app-login-form />
+        <app-login-form (loginEvent)="changeLoginState($event)" />
+        @if (isLoggingIn) {
+            <span class="fp-loader"></span>
+        }
     </div>
 </div>

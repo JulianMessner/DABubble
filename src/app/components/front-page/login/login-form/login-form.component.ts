@@ -1,16 +1,25 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../../../../services/auth.service';
+import { Router, RouterLink } from '@angular/router';
+
+type LoginState = 'initial' | 'adding' | 'success' | 'error';
 
 @Component({
   selector: 'app-login-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.scss'
 })
 export class LoginFormComponent {
 
   formBuilder = inject(FormBuilder);
+  authService = inject(AuthService);
+  router = inject(Router);
+
+  loginState: LoginState = 'initial';
+  @Output() loginEvent = new EventEmitter<boolean>();
 
   loginForm = this.formBuilder.group({
     email: ['', [
@@ -29,7 +38,20 @@ export class LoginFormComponent {
     return this.loginForm.get('password');
   }
 
-  login() {
+  async login() {
+    if (this.email?.value && this.password?.value) {
+      this.loginState = 'adding';
+      this.loginEvent.emit(true);
 
+      try {
+        await this.authService.login(this.email.value, this.password.value);
+        this.loginState = 'success';
+        this.loginEvent.emit(false);
+        this.router.navigate(['/']);
+      } catch (e) {
+        this.loginState = 'error';
+        this.loginEvent.emit(false);
+      }
+    }
   }
 }
