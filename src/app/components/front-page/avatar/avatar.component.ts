@@ -1,6 +1,10 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
+import { User } from '../../../models/user.interface';
+
+type UserCreation = 'initial' | 'adding' | 'success' | 'error';
 
 @Component({
   selector: 'app-avatar',
@@ -13,14 +17,20 @@ export class AvatarComponent implements OnInit {
 
   userService = inject(UserService);
   router = inject(Router);
-  
+  authService = inject(AuthService);
+
   defaultAvatar = 'assets/images/default_avatar.svg';
-  selectedAvatar = '';
+  selectedAvatar = signal<string>('');
 
   user = this.userService.getUser();
 
+  userCreationState: UserCreation = 'initial';
+  userCreationSuccess = false;
+  userCreationError = false;
+  errorMessage = '';
+
   avatars: string[] = [
-    'assets/images/avatar1.svg', 
+    'assets/images/avatar1.svg',
     'assets/images/avatar2.svg',
     'assets/images/avatar3.svg',
     'assets/images/avatar4.svg',
@@ -36,16 +46,61 @@ export class AvatarComponent implements OnInit {
 
   selectAvatar(avatarPath: string) {
     this.userService.setAvatar(avatarPath);
-    this.selectedAvatar = avatarPath;
+    this.selectedAvatar.set(avatarPath);
   }
 
-  addUser() {
+  async addUser() {
+    this.userCreationState = 'adding';
+    const user = this.getUserWithAvatar();
+
+    try {
+      await this.authService.createUser(user.email, user.password);
+      await this.showSuccess();
+
+      // const userWithoutPw = this.userService.getUserWithoutPassword(user);
+      // this.firebaseService.addUser(userWithoutPw);
+
+      this.router.navigate(['/front/login']);
+    } catch (e) {
+      const err = e as Error;
+      this.showError(err.message);
+    }
+  }
+
+  getUserWithAvatar(): User {
     const user = this.userService.getUser();
 
-    if (user && !user.avatar) {
-      user.avatar = this.defaultAvatar;
+    if (user) {
+      if (!user.avatar) {
+        user.avatar = this.defaultAvatar;
+      }
     }
 
-    // add user to firestore
+    return user!;
+  }
+
+  async showSuccess() {
+    this.userCreationState = 'success';
+
+    await new Promise<void>((resolve) => {
+      setTimeout(() => {
+        this.userCreationState = 'initial';
+        resolve();
+      }, 3000);
+    });
+  }
+
+  showError(errorMessage: string) {
+    if (errorMessage.includes('Firebase')) {
+      let words = errorMessage.split(' ');
+      words = words.slice(1);
+      const errorMessageClean = words.join(' ');
+
+      this.errorMessage = errorMessageClean;
+    } else {
+      this.errorMessage = errorMessage;
+    }
+
+    this.userCreationState = 'error';
   }
 }

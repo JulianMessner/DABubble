@@ -27,4 +27,13 @@ export class UserService {
   deleteUser(): void {
     this.user = null;
   }
+
+  getUserWithoutPassword(user: User) {
+    const userWithoutPw = {
+      name: user.name,
+      email: user.email,
+      avatar: user.avatar
+    }
+    return userWithoutPw;
+  }
 }

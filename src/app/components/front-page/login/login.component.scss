@@ -4,6 +4,10 @@
     align-items: center;
     justify-content: center;
 
+    .login-card {
+        position: relative;
+    }
+
     h2 {
         color: var(--purple-1);
         text-align: center;

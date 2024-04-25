@@ -26,9 +26,12 @@
                 <div class="error-message">Bitte geben Sie ein Passwort ein</div>
             }
         }
+        @if (loginState === 'error' && !(password?.errors?.['required'])) {
+            <div class="error-message">E-Mail Adresse oder Passwort ist fehlerhaft</div>
+        }
     </div>
     <div class="buttons">
         <button type="submit" class="main-btn" [disabled]="loginForm.invalid">Anmelden</button>
-        <button type="button" class="secondary-btn">Gäste-Login</button>
+        <button type="button" class="secondary-btn" routerLink="">Gäste-Login</button>
     </div>
 </form>

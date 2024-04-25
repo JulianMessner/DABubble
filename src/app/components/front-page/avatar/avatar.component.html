@@ -7,7 +7,7 @@
         </div>
         <h2>Wähle deinen Avatar</h2>
         <div class="avatar-lrg-wrapper">
-            <img class="avatar-large" [src]="selectedAvatar ? selectedAvatar : defaultAvatar" alt="">
+            <img class="avatar-large" [src]="selectedAvatar() ? selectedAvatar() : defaultAvatar" alt="Avatar Selection">
         </div>
         <p class="user-name">{{ user ? user.name : '' }}</p>
         <p class="choose-info">Aus der Liste wählen</p>
@@ -24,7 +24,23 @@
             <input type="file" id="img-upload">
         </div>
         <div class="button-wrapper">
-            <button class="main-btn" (click)="addUser()">Konto erstellen</button>
+            <button class="main-btn" (click)="addUser()" [disabled]="userCreationState === 'adding'">Konto erstellen</button>
         </div>
+        @switch (userCreationState) {
+            @case ('adding') {
+                <span class="fp-loader"></span>
+            }
+            @case ('error') {
+                <p class="error-message">{{ errorMessage }}</p>
+            }
+        }
     </div>
 </div>
+
+@if (userCreationState === 'success') {
+    <div class="success-overlay">
+        <div class="success-card">
+            <p>Konto erfolgreich erstellt!</p>
+        </div>
+    </div>
+}
