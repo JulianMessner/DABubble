@@ -9,11 +9,12 @@ import { VisibilityService } from '../../service/visibility.service';
 import { CommonModule } from '@angular/common';
 import { NewMessageComponent } from './new-message/new-message.component';
 import { NewChannelComponent } from './new-channel/new-channel.component';
+import { PersonalNotesComponent } from './personal-notes/personal-notes.component';
 
 @Component({
   selector: 'app-main-content',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, NavbarVerticalComponent, MainChatComponent, DirectMessageComponent, ThreadChatComponent, NewMessageComponent, NewChannelComponent],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, NavbarVerticalComponent, MainChatComponent, DirectMessageComponent, ThreadChatComponent, NewMessageComponent, NewChannelComponent, PersonalNotesComponent],
   templateUrl: './main-content.component.html',
   styleUrls: ['./main-content.component.scss', './desktop-main-content.component.scss']
 })

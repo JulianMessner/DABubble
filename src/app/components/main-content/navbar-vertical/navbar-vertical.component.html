@@ -60,9 +60,13 @@
         <div class="messages-content"
             [ngClass]="{ 'animation-in': messagesContentVisible, 'animation-out': !messagesContentVisible }"
             [ngStyle]="{ 'display': messagesContentVisible ? 'flex' : 'none' }">
-            <div class="user-list cursor-pointer" (click)="showDirectMessage()" [class.selected-chat]="userListSelected">
+            <div class="user-list cursor-pointer" (click)="showPersonalNotes()" [class.selected-chat]="personalNotesSelected">
                 <img class="user-icon" src="../../../../assets/img/user1-icon.png" alt="user">
                 <p class="user-name">Frederick Beck (Du)</p>
+            </div>
+            <div class="user-list cursor-pointer" (click)="showDirectMessage()" [class.selected-chat]="userListSelected">
+                <img class="user-icon" src="../../../../assets/img/user1-icon.png" alt="user">
+                <p class="user-name">Noah Beck</p>
             </div>
         </div>
     </div>

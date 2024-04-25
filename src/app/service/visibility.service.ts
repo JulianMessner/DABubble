@@ -14,6 +14,7 @@ export class VisibilityService {
   newMessageVisible: boolean = false;
   newChannelVisible: boolean = false;
   editMessageOverlayVisible: boolean = false;
+  personalNotesVisible: boolean = false;
 
   setNavbarVisible(visible: boolean) {
     this.navbarVisible = visible;
@@ -53,5 +54,9 @@ export class VisibilityService {
 
   hideEditMessageText() {
     this.editMessageOverlayVisible = false;
+  }
+
+  setPersonalNotesVisible(visible: boolean){
+    this.personalNotesVisible = visible;
   }
 }

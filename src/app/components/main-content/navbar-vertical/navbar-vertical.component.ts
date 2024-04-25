@@ -20,7 +20,9 @@ export class NavbarVerticalComponent implements OnInit {
   isTagIconHovered: boolean = false;
   channelsListSelected: boolean = false;
   userListSelected: boolean = false;
-  
+  personalNotesSelected: boolean = false;
+
+
   constructor(private visibilityService: VisibilityService) {}
 
   ngOnInit(): void {
@@ -35,6 +37,7 @@ export class NavbarVerticalComponent implements OnInit {
     this.visibilityService.setMainChatVisible(true);
     this.visibilityService.setDirectMessageVisible(false);
     this.visibilityService.setNewMessageVisible(false);
+    this.visibilityService.setPersonalNotesVisible(false);
     this.channelsListSelected = true;
     this.userListSelected = false;
   }
@@ -49,9 +52,10 @@ export class NavbarVerticalComponent implements OnInit {
     this.visibilityService.setMainChatVisible(false);
     this.visibilityService.setThreadChatVisible(false);
     this.visibilityService.setNewMessageVisible(false);
+    this.visibilityService.setPersonalNotesVisible(false);
     this.userListSelected = true;
+    this.personalNotesSelected = false;
     this.channelsListSelected = false;
-
   }
 
   showNewMessage() {
@@ -64,6 +68,7 @@ export class NavbarVerticalComponent implements OnInit {
     this.visibilityService.setMainChatVisible(false);
     this.visibilityService.setThreadChatVisible(false);
     this.visibilityService.setDirectMessageVisible(false);
+    this.visibilityService.setPersonalNotesVisible(false);
   }
 
   showNewChannel(){
@@ -74,9 +79,26 @@ export class NavbarVerticalComponent implements OnInit {
       this.visibilityService.setThreadChatVisible(false);
       this.visibilityService.setDirectMessageVisible(false);
       this.visibilityService.setNewMessageVisible(false);
+      this.visibilityService.setPersonalNotesVisible(false);
     }
     this.visibilityService.setNavbarVisible(true);
     this.visibilityService.setNewChannelVisible(true);
+  }
+
+  showPersonalNotes(){
+    if (window.innerWidth <= 800) {
+      this.visibilityService.setLogoVisible(false);
+      this.visibilityService.setWorkspaceContainerVisible(true);
+    }
+    this.visibilityService.setNavbarVisible(true);
+    this.visibilityService.setDirectMessageVisible(false);
+    this.visibilityService.setMainChatVisible(false);
+    this.visibilityService.setThreadChatVisible(false);
+    this.visibilityService.setNewMessageVisible(false);
+    this.visibilityService.setPersonalNotesVisible(true);
+    this.personalNotesSelected = true;
+    this.userListSelected = false;
+    this.channelsListSelected = false;
   }
 
   toggleChannelsContent() {

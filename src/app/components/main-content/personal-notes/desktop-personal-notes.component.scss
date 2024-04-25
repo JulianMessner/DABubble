@@ -1,0 +1,29 @@
+@media screen and (min-width: 800px) {
+  .container {
+    height: auto;
+    flex-grow: 1;
+    border-radius: 30px;
+    margin-top: 80px;
+    margin-bottom: 16px;
+    min-width: 360px;
+    padding-top: 0;
+    padding-bottom: 0;
+    .channel-name-header {
+      position: sticky;
+      margin-top: 0;
+    }
+    .conversation-container {
+      margin-top: 30px;
+    }
+  }
+
+  .channel-container {
+    height: auto;
+    flex-grow: 1;
+    margin-top: 30px;
+  }
+
+  .send-message-container {
+    position: sticky;
+  }
+}
