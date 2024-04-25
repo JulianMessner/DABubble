@@ -34,8 +34,8 @@
         <div class="channels-content"
             [ngClass]="{ 'animation-in': channelsContentVisible, 'animation-out': !channelsContentVisible }"
             [ngStyle]="{ 'display': channelsContentVisible ? 'flex' : 'none' }">
-            <div class="channels-list cursor-pointer" (click)="showChannel()">
-                <img class="tag-icon" src="../../../../assets/img/tag.svg" alt="tag">
+            <div class="channels-list cursor-pointer" (mouseenter)="changeTagIconSrc(true)" (mouseleave)="changeTagIconSrc(false)" (click)="showChannel()" [class.selected-chat]="channelsListSelected">
+                <img class="tag-icon" [src]="(channelsListSelected || isTagIconHovered) ? '../../../../assets/img/hover-hashtag.svg' : '../../../../assets/img/tag.svg'" alt="tag">
                 <p class="channel-name">Entwicklerteam</p>
             </div>
             <div class="add-channel cursor-pointer" (click)="showNewChannel()">
@@ -60,7 +60,7 @@
         <div class="messages-content"
             [ngClass]="{ 'animation-in': messagesContentVisible, 'animation-out': !messagesContentVisible }"
             [ngStyle]="{ 'display': messagesContentVisible ? 'flex' : 'none' }">
-            <div class="user-list cursor-pointer" (click)="showDirectMessage()">
+            <div class="user-list cursor-pointer" (click)="showDirectMessage()" [class.selected-chat]="userListSelected">
                 <img class="user-icon" src="../../../../assets/img/user1-icon.png" alt="user">
                 <p class="user-name">Frederick Beck (Du)</p>
             </div>

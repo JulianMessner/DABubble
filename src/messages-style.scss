@@ -56,7 +56,7 @@
   max-width: 600px;
 }
 
-.channel-thread-container.reverse-order{
+.channel-thread-container.reverse-order {
   padding: 10px 16px;
 }
 
@@ -76,9 +76,9 @@
   width: 34px;
 }
 
-.reverse-order{
-  &:hover{
-    background-color: #ECEEFE;
+.reverse-order {
+  &:hover {
+    background-color: #eceefe;
   }
 }
 
@@ -99,6 +99,14 @@
 
 /*Message Input Field*/
 
+.white-bg {
+  height: 170px;
+  width: 100%;
+  background-color: white;
+  position: sticky;
+  bottom: 0px;
+}
+
 .send-message-container {
   margin-right: 16px;
   margin-left: 16px;
@@ -111,6 +119,7 @@
   right: 0;
   left: 0;
   bottom: 20px;
+  z-index: 2;
 }
 
 .input-bottom {
@@ -202,7 +211,6 @@
   position: relative;
 }
 
-
 .overlay-icons,
 .overlay-text {
   position: absolute;
@@ -235,12 +243,12 @@
   padding: 10px 20px;
   font-size: 20px;
   font-weight: 500;
-  span{
+  span {
     border-radius: 30px;
     padding: 10px 20px;
-    &:hover{
-      background-color: #ECEEFE;
-      color: #535AF1;
+    &:hover {
+      background-color: #eceefe;
+      color: #535af1;
       font-weight: 700;
     }
   }
@@ -299,6 +307,7 @@
 .edit-open-icons {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
 
@@ -307,7 +316,6 @@
   align-items: center;
   gap: 10px;
 }
-
 
 @media screen and (min-width: 800px) {
   .send-message-container {

@@ -17,6 +17,9 @@ export class NavbarVerticalComponent implements OnInit {
   isHovering: boolean = false;
   currentImage: string = '../../../../assets/img/new-message.svg';
   isClicked: boolean = false;
+  isTagIconHovered: boolean = false;
+  channelsListSelected: boolean = false;
+  userListSelected: boolean = false;
   
   constructor(private visibilityService: VisibilityService) {}
 
@@ -32,6 +35,8 @@ export class NavbarVerticalComponent implements OnInit {
     this.visibilityService.setMainChatVisible(true);
     this.visibilityService.setDirectMessageVisible(false);
     this.visibilityService.setNewMessageVisible(false);
+    this.channelsListSelected = true;
+    this.userListSelected = false;
   }
 
   showDirectMessage() {
@@ -44,6 +49,8 @@ export class NavbarVerticalComponent implements OnInit {
     this.visibilityService.setMainChatVisible(false);
     this.visibilityService.setThreadChatVisible(false);
     this.visibilityService.setNewMessageVisible(false);
+    this.userListSelected = true;
+    this.channelsListSelected = false;
 
   }
 
@@ -98,5 +105,9 @@ export class NavbarVerticalComponent implements OnInit {
     } else {
       this.currentImage = '../../../../assets/img/new-message-hover.svg';
     }
+  }
+
+  changeTagIconSrc(isHovered: boolean) {
+    this.isTagIconHovered = isHovered;
   }
 }

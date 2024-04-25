@@ -182,6 +182,15 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  border-radius: 20px;
+  padding: 4px 20px;
+  max-width: 200px;
+  &:hover {
+    background-color: #eceefe;
+    font-weight: 700;
+    max-width: 200px;
+    color: #535af1;
+  }
 
   .channels-name {
     font-weight: 400;
@@ -189,10 +198,18 @@
   }
 }
 
+.selected-chat {
+  background-color: #eceefe;
+  font-weight: 700;
+  color: #535af1;
+}
+
 .add-channel {
   display: flex;
   align-items: center;
   gap: 10px;
+  border-radius: 20px;
+  padding: 4px 20px;
 
   .add-circle-icon {
     height: 24px;
@@ -290,16 +307,20 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  border-radius: 20px;
+  padding: 4px 20px;
+  font-weight: 400;
+  font-size: 17px;
+  &:hover {
+    background-color: #eceefe;
+    font-weight: 700;
+    color: #535af1;
+  }
 
   .user-icon {
     height: 50px;
     width: 50px;
     border-radius: 50%;
-  }
-
-  .user-name {
-    font-weight: 400;
-    font-size: 17px;
   }
 }
 

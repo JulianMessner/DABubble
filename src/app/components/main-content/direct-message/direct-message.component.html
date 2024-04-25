@@ -14,9 +14,9 @@
                 <p>Noah Beck</p>
             </div>
             <span class="info-text">Diese Unterhaltung findet nur zwischen dir und<a class="user-name">
-                     &#64;Noah
-                    Beck 
-            </a>statt.
+                    &#64;Noah
+                    Beck
+                </a>statt.
             </span>
         </div>
 
@@ -46,7 +46,8 @@
             <div class="channel-thread-container reverse-order">
                 <img src="../../../../assets/img/user1-icon.png" alt="user-icon" class="user-img">
                 <div class="user-message-container flex-end-column">
-                    <div *ngIf="!isEditing" class="name-time reverse-name-time" (mouseenter)="visibilityService.hideEditMessageText()">
+                    <div *ngIf="!isEditing" class="name-time reverse-name-time"
+                        (mouseenter)="visibilityService.hideEditMessageText()">
                         <p class="user-name cursor-pointer">Frederik Beck</p>
                         <p class="font-size-14-lightgrey">15:06 Uhr</p>
                     </div>
@@ -62,7 +63,8 @@
                                 [(ngModel)]="editedMessage">{{ originalMessage }}</textarea>
                             <div class="edit-open-icons">
                                 <div class="hover-icon">
-                                    <img class="smile-icon cursor-pointer" src="../../../../assets/img/smile.svg" alt="emoji">
+                                    <img class="smile-icon cursor-pointer" src="../../../../assets/img/smile.svg"
+                                        alt="emoji">
                                 </div>
                                 <div class="edit-message-buttons">
                                     <button (click)="cancelEdit()" class="secondary-btn">Abbrechen</button>
@@ -82,8 +84,10 @@
                         <p class="font-size-14-lightgrey"></p>
                     </div>
                     <div class="overlay-icons" *ngIf="!isEditing">
-                        <img class="reaction-icon cursor-pointer" src="../../../../assets/img/reaction.svg" alt="emoji" (mouseenter)="visibilityService.hideEditMessageText()">
-                        <img class="more-icon cursor-pointer" src="../../../../assets/img/more.svg" alt="more options" (mouseenter)="visibilityService.showEditMessageText()">
+                        <img class="reaction-icon cursor-pointer" src="../../../../assets/img/reaction.svg" alt="emoji"
+                            (mouseenter)="visibilityService.hideEditMessageText()">
+                        <img class="more-icon cursor-pointer" src="../../../../assets/img/more.svg" alt="more options"
+                            (mouseenter)="visibilityService.showEditMessageText()">
                     </div>
                     <div class="overlay-text" *ngIf="visibilityService.editMessageOverlayVisible && !isEditing">
                         <span class="cursor-pointer" (click)="enableEdit()">Nachricht bearbeiten</span>
@@ -93,7 +97,6 @@
 
         </div>
     </div>
-
 
     <div class="send-message-container">
         <input type="text" name="message" class="message-input" placeholder="Nachricht an Noah Braun">
@@ -114,3 +117,5 @@
             <img class="send-icon cursor-pointer" src="../../../../assets/img/send.svg" alt="send-icon">
         </div>
     </div>
+    <div class="white-bg"></div>
+</div>
