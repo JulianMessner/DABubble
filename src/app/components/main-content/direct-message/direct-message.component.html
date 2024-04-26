@@ -27,18 +27,24 @@
                 <div class="line"></div>
             </div>
 
-
-            <div class="channel-thread-container" (mouseenter)="visibilityService.hideEditMessageText()">
-                <img src="../../../../assets/img/user1-icon.png" alt="user-icon" class="user-img">
-                <div class="user-message-container">
-                    <div class="name-time">
-                        <p class="user-name cursor-pointer">Noah Braun</p>
-                        <p class="font-size-14-lightgrey">14:25 Uhr</p>
+            <div class="sender-container">
+                <div class="channel-thread-container receiver" (mouseenter)="visibilityService.hideEditMessageText()">
+                    <div class="user-message-receiver">
+                        <img src="../../../../assets/img/user1-icon.png" alt="user-icon" class="user-img">
+                        <div class="user-message-container">
+                            <div class="name-time">
+                                <p class="user-name cursor-pointer">Noah Braun</p>
+                                <p class="font-size-14-lightgrey">14:25 Uhr</p>
+                            </div>
+                            <p class="user-message cursor-pointer">Welche Version ist aktuell von Angular?</p>
+                            <div class="reaction-container">
+                                <img src="../../../../assets/img/reaction.svg" alt="add-reaction"
+                                    class="add-reaction cursor-pointer">
+                            </div>
+                        </div>
                     </div>
-                    <p class="user-message cursor-pointer">Welche Version ist aktuell von Angular?</p>
-                    <div class="reaction-container">
-                        <img src="../../../../assets/img/reaction.svg" alt="add-reaction"
-                            class="add-reaction cursor-pointer">
+                    <div class="overlay-icons-receiver">
+                        <img class="reaction-icon cursor-pointer" src="../../../../assets/img/reaction.svg" alt="emoji">
                     </div>
                 </div>
             </div>

@@ -277,6 +277,10 @@
   }
 }
 
+.channel-thread-container.receiver{
+  position: relative;
+}
+
 .channel-thread-container.receiver:hover .overlay-icons-receiver {
   display: flex;
 }

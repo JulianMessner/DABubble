@@ -11,7 +11,8 @@
             <img src="../../../../assets/img/tag.png" alt="tag" class="tag-image">
             <p class="channel-name">Entwicklerteam</p>
         </div>
-        <img class="close-icon cursor-pointer" (click)="closeThreadChat()" src="../../../../assets/img/close.svg" alt="close">
+        <img class="close-icon cursor-pointer" (click)="closeThreadChat()" src="../../../../assets/img/close.svg"
+            alt="close">
     </div>
 
     <div class="conversation-container">
@@ -23,18 +24,24 @@
                 <div class="line"></div>
             </div>
 
-
-            <div class="channel-thread-container" (mouseenter)="visibilityService.hideEditMessageText()">
-                <img src="../../../../assets/img/user1-icon.png" alt="user-icon" class="user-img">
-                <div class="user-message-container">
-                    <div class="name-time">
-                        <p class="user-name cursor-pointer">Noah Braun</p>
-                        <p class="font-size-14-lightgrey">14:25 Uhr</p>
+            <div class="sender-container">
+                <div class="channel-thread-container receiver" (mouseenter)="visibilityService.hideEditMessageText()">
+                    <div class="user-message-receiver">
+                        <img src="../../../../assets/img/user1-icon.png" alt="user-icon" class="user-img">
+                        <div class="user-message-container">
+                            <div class="name-time">
+                                <p class="user-name cursor-pointer">Noah Braun</p>
+                                <p class="font-size-14-lightgrey">14:25 Uhr</p>
+                            </div>
+                            <p class="user-message cursor-pointer">Welche Version ist aktuell von Angular?</p>
+                            <div class="reaction-container">
+                                <img src="../../../../assets/img/reaction.svg" alt="add-reaction"
+                                    class="add-reaction cursor-pointer">
+                            </div>
+                        </div>
                     </div>
-                    <p class="user-message cursor-pointer">Welche Version ist aktuell von Angular?</p>
-                    <div class="reaction-container">
-                        <img src="../../../../assets/img/reaction.svg" alt="add-reaction"
-                            class="add-reaction cursor-pointer">
+                    <div class="overlay-icons-receiver">
+                        <img class="reaction-icon cursor-pointer" src="../../../../assets/img/reaction.svg" alt="emoji">
                     </div>
                 </div>
             </div>
@@ -42,7 +49,8 @@
             <div class="channel-thread-container reverse-order">
                 <img src="../../../../assets/img/user1-icon.png" alt="user-icon" class="user-img">
                 <div class="user-message-container flex-end-column">
-                    <div *ngIf="!isEditing" class="name-time reverse-name-time" (mouseenter)="visibilityService.hideEditMessageText()">
+                    <div *ngIf="!isEditing" class="name-time reverse-name-time"
+                        (mouseenter)="visibilityService.hideEditMessageText()">
                         <p class="user-name cursor-pointer">Frederik Beck</p>
                         <p class="font-size-14-lightgrey">15:06 Uhr</p>
                     </div>
@@ -57,7 +65,8 @@
                                 [(ngModel)]="editedMessage">{{ originalMessage }}</textarea>
                             <div class="edit-open-icons">
                                 <div class="hover-icon">
-                                    <img class="smile-icon cursor-pointer" src="../../../../assets/img/smile.svg" alt="emoji">
+                                    <img class="smile-icon cursor-pointer" src="../../../../assets/img/smile.svg"
+                                        alt="emoji">
                                 </div>
                                 <div class="edit-message-buttons">
                                     <button (click)="cancelEdit()" class="secondary-btn">Abbrechen</button>
@@ -72,8 +81,10 @@
                             class="add-reaction cursor-pointer">
                     </div>
                     <div class="overlay-icons" *ngIf="!isEditing">
-                        <img class="reaction-icon cursor-pointer" src="../../../../assets/img/reaction.svg" alt="emoji" (mouseenter)="visibilityService.hideEditMessageText()">
-                        <img class="more-icon cursor-pointer" src="../../../../assets/img/more.svg" alt="more options" (mouseenter)="visibilityService.showEditMessageText()">
+                        <img class="reaction-icon cursor-pointer" src="../../../../assets/img/reaction.svg" alt="emoji"
+                            (mouseenter)="visibilityService.hideEditMessageText()">
+                        <img class="more-icon cursor-pointer" src="../../../../assets/img/more.svg" alt="more options"
+                            (mouseenter)="visibilityService.showEditMessageText()">
                     </div>
                     <div class="overlay-text" *ngIf="visibilityService.editMessageOverlayVisible && !isEditing">
                         <span class="cursor-pointer" (click)="enableEdit()">Nachricht bearbeiten</span>
