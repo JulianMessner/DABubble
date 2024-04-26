@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { VisibilityService } from '../../../service/visibility.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
 
 @Component({
   selector: 'app-main-chat',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, PickerModule],
   templateUrl: './main-chat.component.html',
   styleUrls: [
     './main-chat.component.scss',
@@ -17,6 +18,7 @@ export class MainChatComponent {
   editedMessage: string = '';
   originalMessage: string = 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.';
   isEditing: boolean = false; 
+  showEmojiPopup: boolean = false;
 
   constructor(public visibilityService: VisibilityService) {}
 
@@ -40,5 +42,9 @@ export class MainChatComponent {
   saveEdit() {
     this.originalMessage = this.editedMessage;
     this.isEditing = false;
+  }
+
+  toggleEmojiPicker() {
+    this.showEmojiPopup = !this.showEmojiPopup;
   }
 }

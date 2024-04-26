@@ -45,7 +45,7 @@
                             <div class="edit-open-icons">
                                 <div class="hover-icon">
                                     <img class="smile-icon cursor-pointer" src="../../../../assets/img/smile.svg"
-                                        alt="emoji">
+                                        alt="emoji" (click)="toggleEmojiPicker()">
                                 </div>
                                 <div class="edit-message-buttons">
                                     <button (click)="cancelEdit()" class="secondary-btn">Abbrechen</button>
@@ -58,7 +58,7 @@
 
                     <div class="reaction-container" *ngIf="!isEditing">
                         <img src="../../../../assets/img/reaction.svg" alt="add-reaction"
-                            class="add-reaction cursor-pointer">
+                            class="add-reaction cursor-pointer" (click)="toggleEmojiPicker()">
                     </div>
                     <div class="thread-reply-container cursor-pointer">
                         <a href="#" class="forward-to-reply"></a>
@@ -69,6 +69,9 @@
                             (mouseenter)="visibilityService.hideEditMessageText()">
                         <img class="more-icon cursor-pointer" src="../../../../assets/img/more.svg" alt="more options"
                             (mouseenter)="visibilityService.showEditMessageText()">
+                    </div>
+                    <div *ngIf="showEmojiPopup" class="emoji-popup">
+                        <emoji-mart></emoji-mart>
                     </div>
                     <div class="overlay-text" *ngIf="visibilityService.editMessageOverlayVisible && !isEditing">
                         <span class="cursor-pointer" (click)="enableEdit()">Nachricht bearbeiten</span>
@@ -88,7 +91,7 @@
                 </div>
                 <div class="divider"></div>
                 <div class="hover-icon">
-                    <img class="smile-icon" src="../../../../assets/img/smile.svg" alt="emoji">
+                    <img class="smile-icon" src="../../../../assets/img/smile.svg" alt="emoji" (click)="toggleEmojiPicker()">
                 </div>
                 <div class="hover-icon">
                     <img class="email-icon" src="../../../../assets/img/email.svg" alt="@-icon">

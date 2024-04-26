@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
       this.visibilityService.setDirectMessageVisible(false);
       this.visibilityService.setNewMessageVisible(false);
       this.visibilityService.setNewChannelVisible(false);
+      this.visibilityService.setPersonalNotesVisible(false);
     }
   }
 

@@ -1,3 +1,28 @@
+@import '@ctrl/ngx-emoji-mart/picker';
+.emoji-mart {
+  background-color: #fff;
+  color: #333;
+  position: absolute;
+  z-index: 2;
+  top: 50px;
+  right: 37px;
+}
+
+.emoji-mart.dark {
+  background-color: #333;
+  color: #fff;
+}
+
+.emoji-mart{
+  width: 250px !important;
+  height: 200px !important;
+  overflow-y: auto;
+}
+
+input#emoji-mart-search-1{
+  background-color: white !important;
+}
+
 /* nunito-200 - latin */
 @font-face {
     font-display: swap;
