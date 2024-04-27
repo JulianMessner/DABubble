@@ -52,10 +52,10 @@
   justify-content: flex-end;
 }
 
-.channel-thread-container.receiver{
+.channel-thread-container.receiver {
   padding-top: 10px;
   padding-bottom: 10px;
-  &:hover{
+  &:hover {
     background-color: #eceefe;
   }
 }
@@ -278,7 +278,7 @@
   }
 }
 
-.channel-thread-container.receiver{
+.channel-thread-container.receiver {
   position: relative;
 }
 
@@ -329,7 +329,7 @@
   }
 }
 
-.answer-icon{
+.answer-icon {
   height: 32px;
   width: 32px;
   &:hover {
@@ -341,6 +341,7 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  flex-direction: column;
 }
 
 .edit-textarea-buttons {
@@ -380,13 +381,29 @@
   gap: 10px;
 }
 
+/*Emojis*/
+
+.emoji-received-container {
+  display: flex;
+  gap: 10px;
+}
+
+.emoji-received {
+  width: 60px;
+  border: 1px solid #adb0d9;
+  border-radius: 20px;
+  padding: 5px 10px;
+  gap: 10px;
+  display: flex;
+}
+
 @media screen and (min-width: 800px) {
   .send-message-container {
     margin-left: 50px;
     margin-right: 50px;
   }
 
-  .reaction-container{
+  .reaction-container {
     display: none;
   }
 }
