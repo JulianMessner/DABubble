@@ -75,18 +75,21 @@
                         </div>
 
                         <div *ngIf="isEditing" class="edit-textarea-buttons">
-                            <textarea class="user-message user-a-message-radius-bg textarea cursor-pointer"
+                            <textarea #textarea class="user-message user-a-message-radius-bg textarea cursor-pointer"
                                 (mouseleave)="visibilityService.hideEditMessageText()" contenteditable="true"
                                 [(ngModel)]="editedMessage">{{ originalMessage }}</textarea>
                             <div class="edit-open-icons">
                                 <div class="hover-icon">
                                     <img class="smile-icon cursor-pointer" src="../../../../assets/img/smile.svg"
-                                        alt="emoji">
+                                        alt="emoji" (click)="openEmojiPickerTextarea($event, textarea)">
                                 </div>
                                 <div class="edit-message-buttons">
                                     <button (click)="cancelEdit()" class="secondary-btn">Abbrechen</button>
                                     <button (click)="saveEdit()" class="main-btn">Speichern</button>
                                 </div>
+                            </div>
+                            <div *ngIf="showEmojiPopupTextarea" class="emoji-popup">
+                                <emoji-mart (emojiClick)="addEmojiToTextarea($event.emoji.native)"></emoji-mart>
                             </div>
                         </div>
 

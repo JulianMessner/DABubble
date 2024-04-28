@@ -27,18 +27,20 @@
                                 <p class="font-size-14-lightgrey">14:25 Uhr</p>
                             </div>
                             <p class="user-message cursor-pointer">Welche Version ist aktuell von Angular?</p>
+                            <div class="emoji-received-container" #message1>
+                            </div>
                             <div class="reaction-container">
                                 <img src="../../../../assets/img/reaction.svg" alt="add-reaction"
-                                    class="add-reaction cursor-pointer" (click)="toggleEmojiPicker()"> 
+                                    class="add-reaction cursor-pointer" (click)="openEmojiPicker($event, message1)"> 
                             </div>
                         </div>
                     </div>
                     <div class="overlay-icons-receiver">
-                        <img class="reaction-icon cursor-pointer" src="../../../../assets/img/reaction.svg" alt="emoji" (click)="toggleEmojiPicker()">
+                        <img class="reaction-icon cursor-pointer" src="../../../../assets/img/reaction.svg" alt="emoji" (click)="openEmojiPicker($event, message1)">
                         <img class="answer-icon cursor-pointer" src="../../../../assets/img/answer.svg" alt="more options">
                     </div>
                     <div *ngIf="showEmojiPopup" class="emoji-popup">
-                        <emoji-mart></emoji-mart>
+                        <emoji-mart (emojiClick)="addEmojiToMessage($event.emoji.native)"></emoji-mart>
                     </div>
                 </div>
                 <div class="thread-reply-container cursor-pointer">
@@ -61,20 +63,25 @@
                         <div *ngIf="!isEditing">
                             <p class="user-message user-a-message-radius-bg cursor-pointer">{{ originalMessage }}</p>
                         </div>
+                        <div class="emoji-received-container" #message2 style="margin-top: 8px;">
+                        </div>
 
                         <div *ngIf="isEditing" class="edit-textarea-buttons">
-                            <textarea class="user-message user-a-message-radius-bg textarea cursor-pointer"
+                            <textarea #textarea class="user-message user-a-message-radius-bg textarea cursor-pointer"
                                 (mouseleave)="visibilityService.hideEditMessageText()" contenteditable="true"
                                 [(ngModel)]="editedMessage">{{ originalMessage }}</textarea>
                             <div class="edit-open-icons">
                                 <div class="hover-icon">
                                     <img class="smile-icon cursor-pointer" src="../../../../assets/img/smile.svg"
-                                        alt="emoji" (click)="toggleEmojiPicker()">
+                                        alt="emoji" (click)="openEmojiPickerTextarea($event, textarea)">
                                 </div>
                                 <div class="edit-message-buttons">
                                     <button (click)="cancelEdit()" class="secondary-btn">Abbrechen</button>
                                     <button (click)="saveEdit()" class="main-btn">Speichern</button>
                                 </div>
+                            </div>
+                            <div *ngIf="showEmojiPopupTextarea" class="emoji-popup">
+                                <emoji-mart (emojiClick)="addEmojiToTextarea($event.emoji.native)"></emoji-mart>
                             </div>
                         </div>
 
@@ -86,7 +93,7 @@
                     </div>
                     <div class="overlay-icons" *ngIf="!isEditing">
                         <img class="reaction-icon cursor-pointer" src="../../../../assets/img/reaction.svg" alt="emoji"
-                            (mouseenter)="visibilityService.hideEditMessageText()">
+                            (mouseenter)="visibilityService.hideEditMessageText()" (click)="openEmojiPicker($event, message2)">
                         <img class="more-icon cursor-pointer" src="../../../../assets/img/more.svg" alt="more options"
                             (mouseenter)="visibilityService.showEditMessageText()">
                     </div>
@@ -104,7 +111,7 @@
         </div>
 
         <div class="send-message-container">
-            <input type="text" name="message" class="message-input" placeholder="Nachricht an #Entwicklerteam">
+            <input #input type="text" name="message" class="message-input" placeholder="Nachricht an #Entwicklerteam">
             <div class="input-bottom">
                 <div class="icons-left cursor-pointer">
                     <div class="hover-icon">
@@ -112,7 +119,7 @@
                     </div>
                     <div class="divider"></div>
                     <div class="hover-icon">
-                        <img class="smile-icon" src="../../../../assets/img/smile.svg" alt="emoji" (click)="toggleEmojiPicker()">
+                        <img class="smile-icon" src="../../../../assets/img/smile.svg" alt="emoji" (click)="openEmojiPickerInput($event, input)">
                     </div>
                     <div class="hover-icon">
                         <img class="email-icon" src="../../../../assets/img/email.svg" alt="@-icon">
@@ -120,6 +127,9 @@
 
                 </div>
                 <img class="send-icon cursor-pointer" src="../../../../assets/img/send.svg" alt="send-icon">
+            </div>
+            <div *ngIf="showEmojiPopupInput" class="emoji-popup">
+                <emoji-mart (emojiClick)="addEmojiToInput($event.emoji.native)"></emoji-mart>
             </div>
         </div>
 

@@ -21,8 +21,10 @@ export class DirectMessageComponent {
   isEditing: boolean = false;
   selectedMessage: HTMLElement | null = null;
   selectedInput: HTMLInputElement | null = null;
+  selectedTextarea: HTMLTextAreaElement | null = null;
   showEmojiPopup: boolean = false;
   showEmojiPopupInput: boolean = false;
+  showEmojiPopupTextarea: boolean = false;
   emojiClickCounts: Map<string, number> = new Map();
 
   constructor(public visibilityService: VisibilityService) {}
@@ -50,6 +52,11 @@ export class DirectMessageComponent {
   openEmojiPickerInput(event: MouseEvent, input: HTMLInputElement) {
     this.showEmojiPopupInput = !this.showEmojiPopupInput;
     this.selectedInput = input;
+  }
+
+  openEmojiPickerTextarea(event: MouseEvent, textarea: HTMLTextAreaElement) {
+    this.showEmojiPopupTextarea = !this.showEmojiPopupTextarea;
+    this.selectedTextarea = textarea;
   }
 
   addEmojiToInput(emoji: string) {
@@ -88,5 +95,23 @@ export class DirectMessageComponent {
       }
     }
     this.showEmojiPopup = !this.showEmojiPopup;
+  }
+
+  addEmojiToTextarea(emoji: string) {
+    if (this.selectedTextarea && this.isEditing) {
+      const cursorPosition = this.selectedTextarea.selectionStart || 0;
+      const inputValue = this.selectedTextarea.value;
+      const newValue =
+        inputValue.slice(0, cursorPosition) +
+        emoji +
+        inputValue.slice(cursorPosition);
+      this.selectedTextarea.value = newValue;
+      this.editedMessage = newValue;
+      this.selectedTextarea.setSelectionRange(
+        cursorPosition + emoji.length,
+        cursorPosition + emoji.length
+      );
+    }
+    this.showEmojiPopupTextarea = !this.showEmojiPopupTextarea;
   }
 }
