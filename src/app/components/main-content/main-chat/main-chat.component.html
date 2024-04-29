@@ -1,11 +1,15 @@
 <div class="container">
     <div class="channel-name-header">
-        <div class="channel-header-left cursor-pointer">
-            <img class="tag-image" src="../../../../assets/img/tag.png" alt="tag">
+        <div class="channel-header-left cursor-pointer" (click)="toggleChannelDescription()">
+            <img class="tag-image" src="../../../../assets/img/tag.svg" alt="tag">
             <p class="channel-name">Entwicklerteam</p>
             <img src="../../../../assets/img/arrow-down-chat.png" alt="arrow-down" class="arrow-down">
         </div>
         <img src="../../../../assets/img/add-user.svg" alt="add-user" class="add-user cursor-pointer">
+    </div>
+
+    <div *ngIf="channelDescriptionVisible" class="channel-description-full-container">
+        <app-channel-description></app-channel-description>
     </div>
 
     <div class="conversation-container">

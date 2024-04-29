@@ -3,11 +3,12 @@ import { VisibilityService } from '../../../service/visibility.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
+import { ChannelDescriptionComponent } from '../../channel-description/channel-description.component';
 
 @Component({
   selector: 'app-main-chat',
   standalone: true,
-  imports: [CommonModule, FormsModule, PickerModule],
+  imports: [CommonModule, FormsModule, PickerModule, ChannelDescriptionComponent],
   templateUrl: './main-chat.component.html',
   styleUrls: [
     './main-chat.component.scss',
@@ -15,6 +16,7 @@ import { PickerModule } from '@ctrl/ngx-emoji-mart';
   ],
 })
 export class MainChatComponent {
+  channelDescriptionVisible: boolean = false;
   editedMessage: string = '';
   originalMessage: string =
     'Lorem ipsum, dolor sit amet consectetur adipisicing elit.';
@@ -28,6 +30,10 @@ export class MainChatComponent {
   emojiClickCounts: Map<string, number> = new Map();
 
   constructor(public visibilityService: VisibilityService) {}
+
+  toggleChannelDescription(){
+    this.channelDescriptionVisible = !this.channelDescriptionVisible;
+  }
 
   showThreadChat() {
     if (window.innerWidth <= 1150) {
