@@ -21,18 +21,22 @@
         <div class="upload-image-container">
             <p class="upload-image-info">Eigenes Bild verwenden</p>
             <label for="img-upload" class="secondary-btn">Datei hochladen</label>
-            <input type="file" id="img-upload">
+            <input type="file" id="img-upload" accept="image/png, image/jpeg"
+                (change)="selectImage($event)" #inputFile>
         </div>
         <div class="button-wrapper">
             <button class="main-btn" (click)="addUser()" [disabled]="userCreationState === 'adding'">Konto erstellen</button>
         </div>
+        @if (userCreationState === 'adding') {
+            <span class="fp-loader"></span>
+        }
         @switch (userCreationState) {
-            @case ('adding') {
-                <span class="fp-loader"></span>
-            }
             @case ('error') {
                 <p class="error-message">{{ errorMessage }}</p>
             }
+        }
+        @if (imageUploadStatus === 'error') {
+            <p class="error-message">Failed to upload your image! Try again</p>
         }
     </div>
 </div>
