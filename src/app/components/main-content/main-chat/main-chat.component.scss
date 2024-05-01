@@ -84,8 +84,8 @@ input:-webkit-autofill:active {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: white; /* Hintergrundfarbe mit Transparenz für das Overlay */
-  z-index: 9999; /* Stellen Sie sicher, dass das Overlay über allem anderen liegt */
+  background-color: transparent; 
+  z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;

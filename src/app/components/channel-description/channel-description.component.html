@@ -1,66 +1,85 @@
-<div class="full-container">
-    <div class="channel-header">
-        <div class="channel-name">
-            <img class="tag-image" src="../../../assets/img/tag.svg" alt="tag">
-            <span class="font-size-24-weight-700-black">Entwicklerteam</span>
-        </div>
-        <img (click)="toggleChannelDescription()" class="cursor-pointer" src="../../../../assets/img/close.svg"
-            alt="close">
-    </div>
-    <div class="container">
-        <div class="container-border-gap">
-            <div class="name-edit">
-                <span class="font-size-18-weight-700-black">Channel-Name</span>
-                <div class="edit-img cursor-pointer">
-                    <img src="../../../assets/img/edit.svg" alt="edit">
-                </div>
-            </div>
-            <div class="name">
+<div class="desktop-pop-up">
+    <div class="full-container">
+        <div class="channel-header">
+            <div class="channel-name">
                 <img class="tag-image" src="../../../assets/img/tag.svg" alt="tag">
-                <span class="name-text">Entwicklerteam</span>
+                <span class="font-size-24-weight-700-black">Entwicklerteam</span>
             </div>
+            <img (click)="toggleChannelDescription()" class="cursor-pointer" src="../../../../assets/img/close.svg"
+                alt="close">
         </div>
-        <div class="container-border-gap">
-            <div class="channel-description-edit">
-                <div class="description-edit">
-                    <p class="font-size-18-weight-700-black">Beschreibung</p>
-                    <div class="edit-img cursor-pointer">
-                        <img src="../../../assets/img/edit.svg" alt="edit">
+        <div class="container">
+            <div class="container-border-gap" [class.edit-mode]="nameEditMode">
+                <div class="name-container" [class.edit-mode]="nameEditMode">
+                    <div class="name-edit">
+                        <span class="font-size-18-weight-700-black">Channel-Name</span>
+                        <div class="edit-img cursor-pointer edit-name" (click)="toggleNameEditMode()"
+                            (mouseenter)="onMouseEnterEdit()" (mouseleave)="onMouseLeaveEdit()">
+                            <img [src]="nameEditMode ? (isNameEditHovered ? '../../../assets/img/check-hover.svg' : '../../../assets/img/check.svg') : (isNameEditHovered ? '../../../assets/img/edit-hover.svg' : '../../../assets/img/edit.svg')"
+                                alt="edit">
+                        </div>
+
+
+                    </div>
+                    <div class="name" [class.edit-mode]="nameEditMode">
+                        <img class="tag-image" src="../../../assets/img/tag.svg" alt="tag"
+                            [class.edit-mode]="nameEditMode">
+                        <span class="name-text" [attr.contentEditable]="nameEditMode ? 'true' : 'false'">
+                            {{ name }}
+                        </span>
                     </div>
                 </div>
-                <div class="description">
-                    <span class="description-text">Dieser Channel ist für alles rund um #dfsdf vorgesehen. Hier kannst
-                        du
-                        zusammen mit deinem Team Meetings abhalten, Dokumente teilen und Entscheidungen treffen.</span>
-                </div>
+
             </div>
-            <div class="divider"></div>
-            <div class="created-container">
-                <span class="font-header">Erstellt von</span>
-                <span class="creater-name cursor-pointer"> Noah Braun</span>
-            </div>
-        </div>
-        <div class="container-border-gap">
-            <span class="font-size-18-weight-700-black">Mitglieder</span>
-            <div class="members-list">
-                <div class="user-list cursor-pointer">
-                    <img class="user-icon" src="../../../../assets/img/user1-icon.png" alt="user">
-                    <p class="user-name">Frederick Beck (Du)</p>
-                </div>
-                <div class="user-list cursor-pointer">
-                    <img class="user-icon" src="../../../../assets/img/user1-icon.png" alt="user">
-                    <p class="user-name">Noah Beck</p>
-                </div>
-                <div class="user-list member cursor-pointer" (mouseenter)="changeImgSrc(true)" (mouseleave)="changeImgSrc(false)">
-                    <div class="add-member-img">
-                        <img [src]="isHovered ? '../../../../assets/img/add-member-hover.svg' : '../../../../assets/img/add-member.svg'" alt="add member">
+            <div class="container-border-gap" [class.edit-mode]="descriptionEditMode">
+                <div class="channel-description-edit" [class.edit-mode]="descriptionEditMode">
+                    <div class="description-edit">
+                        <p class="font-size-18-weight-700-black">Beschreibung</p>
+                        <div class="edit-img cursor-pointer edit-description" (click)="toggleDescriptionEditMode()"
+                            (mouseenter)="onMouseEnterDescriptionEdit()" (mouseleave)="onMouseLeaveDescriptionEdit()">
+                            <img [src]="descriptionEditMode ? (isDescriptionEditHovered ? '../../../assets/img/check-hover.svg' : '../../../assets/img/check.svg') : (isDescriptionEditHovered ? '../../../assets/img/edit-hover.svg' : '../../../assets/img/edit.svg')"
+                                alt="edit">
+                        </div>
+
                     </div>
-                    <span class="user-name">Mitglieder hinzufügen</span>
+                    <div class="description" [class.edit-mode]="descriptionEditMode">
+                        <span class="description-text" [attr.contentEditable]="descriptionEditMode ? 'true' : 'false'">
+                            {{ description }}
+                        </span>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="created-container">
+                    <span class="font-header">Erstellt von</span>
+                    <span class="creater-name cursor-pointer"> Noah Braun</span>
                 </div>
             </div>
+            <div class="container-border-gap">
+                <span class="member-header font-size-18-weight-700-black">Mitglieder</span>
+                <div class="members-list">
+                    <div class="user-list cursor-pointer">
+                        <img class="user-icon" src="../../../../assets/img/user1-icon.png" alt="user">
+                        <p class="user-name">Frederick Beck (Du)</p>
+                    </div>
+                    <div class="user-list cursor-pointer">
+                        <img class="user-icon" src="../../../../assets/img/user1-icon.png" alt="user">
+                        <p class="user-name">Noah Beck</p>
+                    </div>
+                    <div class="user-list member cursor-pointer" (mouseenter)="changeImgSrc(true)"
+                        (mouseleave)="changeImgSrc(false)">
+                        <div class="add-member-img">
+                            <img [src]="isHovered ? '../../../../assets/img/add-member-hover.svg' : '../../../../assets/img/add-member.svg'"
+                                alt="add member">
+                        </div>
+                        <span class="user-name">Mitglieder hinzufügen</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button class="main-btn">Channel verlassen</button>
+            </div>
         </div>
+
     </div>
-
-
-
 </div>
