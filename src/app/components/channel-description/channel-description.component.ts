@@ -7,7 +7,10 @@ import { MainChatComponent } from '../main-content/main-chat/main-chat.component
   standalone: true,
   imports: [CommonModule, MainChatComponent],
   templateUrl: './channel-description.component.html',
-  styleUrls: ['./channel-description.component.scss', './desktop-channel-description.component.scss'],
+  styleUrls: [
+    './channel-description.component.scss',
+    './desktop-channel-description.component.scss',
+  ],
 })
 export class ChannelDescriptionComponent {
   isHovered: boolean = false;
@@ -18,6 +21,7 @@ export class ChannelDescriptionComponent {
   name: string = 'Entwicklerteam';
   description: string =
     'Dieser Channel ist für alles rund um #dfsdf vorgesehen. Hier kannst du zusammen mit deinem Team Meetings abhalten, Dokumente teilen und Entscheidungen treffen.';
+  showOverlay: boolean = false;
 
   @ViewChild('nameText') nameTextElement!: ElementRef;
   @ViewChild('descriptionText') descriptionTextElement!: ElementRef;
@@ -64,5 +68,13 @@ export class ChannelDescriptionComponent {
 
   onMouseLeaveDescriptionEdit() {
     this.isDescriptionEditHovered = false;
+  }
+
+  toggleOverlay() {
+    this.showOverlay = !this.showOverlay;
+  }
+
+  closeOverlay() {
+    this.showOverlay = false;
   }
 }

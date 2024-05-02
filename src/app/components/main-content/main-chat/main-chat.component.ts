@@ -13,6 +13,7 @@ import { ChannelDescriptionComponent } from '../../channel-description/channel-d
   styleUrls: [
     './main-chat.component.scss',
     './desktop-main-chat.component.scss',
+    './pop-up-main-chat.component.scss',
   ],
 })
 export class MainChatComponent {
@@ -28,6 +29,8 @@ export class MainChatComponent {
   showEmojiPopupInput: boolean = false;
   showEmojiPopupTextarea: boolean = false;
   emojiClickCounts: Map<string, number> = new Map();
+  isHovered: boolean = false;
+  showOverlay: boolean = false;
 
   constructor(public visibilityService: VisibilityService) {}
 
@@ -126,5 +129,17 @@ export class MainChatComponent {
       );
     }
     this.showEmojiPopupTextarea = !this.showEmojiPopupTextarea;
+  }
+
+  changeImgSrc(isHovering: boolean) {
+    this.isHovered = isHovering;
+  }
+
+  toggleOverlay() {
+    this.showOverlay = !this.showOverlay;
+  }
+
+  closeOverlay() {
+    this.showOverlay = false;
   }
 }

@@ -3,7 +3,7 @@
         <div class="channel-header">
             <div class="channel-name">
                 <img class="tag-image" src="../../../assets/img/tag.svg" alt="tag">
-                <span class="font-size-24-weight-700-black">Entwicklerteam</span>
+                <span class="font-size-24-weight-700-black">{{ name }}</span>
             </div>
             <img (click)="toggleChannelDescription()" class="cursor-pointer" src="../../../../assets/img/close.svg"
                 alt="close">
@@ -66,12 +66,12 @@
                         <p class="user-name">Noah Beck</p>
                     </div>
                     <div class="user-list member cursor-pointer" (mouseenter)="changeImgSrc(true)"
-                        (mouseleave)="changeImgSrc(false)">
+                        (mouseleave)="changeImgSrc(false)" (click)="toggleOverlay()">
                         <div class="add-member-img">
                             <img [src]="isHovered ? '../../../../assets/img/add-member-hover.svg' : '../../../../assets/img/add-member.svg'"
                                 alt="add member">
                         </div>
-                        <span class="user-name">Mitglieder hinzufügen</span>
+                        <span class="user-name add-member">Mitglieder hinzufügen</span>
                     </div>
                 </div>
             </div>
@@ -81,5 +81,20 @@
             </div>
         </div>
 
+    </div>
+    <div *ngIf="showOverlay" class="overlay active" (click)="closeOverlay()">
+        <div class="overlay-content">
+            <div class="line"></div>
+            <div class="add-member-header">
+                <p class="font-size-24-weight-700-black">Leute hinzufügen</p>
+                <img (click)="closeOverlay()" class="cursor-pointer" src="../../../../assets/img/close.svg" alt="close">
+            </div>
+            <div class="search-bar">
+                <input name="search" class="search-input" type="text" placeholder="Name eingeben">
+            </div>
+            <div class="btn-div">
+                <button class="main-btn">Hinzufügen</button>
+            </div>
+        </div>
     </div>
 </div>
