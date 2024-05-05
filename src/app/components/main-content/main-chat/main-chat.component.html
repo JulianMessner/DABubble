@@ -5,47 +5,16 @@
             <p class="channel-name">Entwicklerteam</p>
             <img src="../../../../assets/img/arrow-down-chat.png" alt="arrow-down" class="arrow-down">
         </div>
-        <img src="../../../../assets/img/add-user.svg" alt="add-user" class="add-user cursor-pointer" (click)="toggleOverlay()">
-
-        <!-- member list -->
-
-        <div class="member-container">
-            <span class="member-header font-size-18-weight-700-black">Mitglieder</span>
-            <div class="members-list">
-                <div class="user-list cursor-pointer">
-                    <img class="user-icon" src="../../../../assets/img/user1-icon.png" alt="user">
-                    <p class="user-name">Frederick Beck (Du)</p>
+        <div class="header-right">
+            <div class="member-list-small cursor-pointer" (click)="toggleMemberPopUp()">
+                <div class="user-images">
+                    <img class="user-icon-small" src="../../../../assets/img/user1-icon.png" alt="user">
+                    <img class="user-icon-small margin-negative" src="../../../../assets/img/user1-icon.png" alt="user">
                 </div>
-                <div class="user-list cursor-pointer">
-                    <img class="user-icon" src="../../../../assets/img/user1-icon.png" alt="user">
-                    <p class="user-name">Noah Beck</p>
-                </div>
-                <div class="user-list member cursor-pointer" (mouseenter)="changeImgSrc(true)"
-                    (mouseleave)="changeImgSrc(false)" (click)="toggleOverlay()">
-                    <div class="add-member-img">
-                        <img [src]="isHovered ? '../../../../assets/img/add-member-hover.svg' : '../../../../assets/img/add-member.svg'"
-                            alt="add member">
-                    </div>
-                    <span class="user-name add-member">Mitglieder hinzufügen</span>
-                </div>
+                <span class="members-number">2</span>
             </div>
-        </div>
-
-        <!--Pop-Up Add Member by searching-->
-        <div *ngIf="showOverlay" class="overlay active" (click)="closeOverlay()">
-            <div class="overlay-content">
-                <div class="line"></div>
-                <div class="add-member-header">
-                    <p class="font-size-24-weight-700-black">Leute hinzufügen</p>
-                    <img (click)="closeOverlay()" class="cursor-pointer" src="../../../../assets/img/close.svg" alt="close">
-                </div>
-                <div class="search-bar">
-                    <input name="search" class="search-input" type="text" placeholder="Name eingeben">
-                </div>
-                <div class="btn-div">
-                    <button class="main-btn">Hinzufügen</button>
-                </div>
-            </div>
+            <img src="../../../../assets/img/add-user.svg" alt="add-user" class="add-user cursor-pointer"
+                (click)="isSmallScreen() ? toggleOverlay() : toggleSearchMemberPopUp()">
         </div>
     </div>
 
@@ -76,13 +45,15 @@
                             </div>
                             <div class="reaction-container">
                                 <img src="../../../../assets/img/reaction.svg" alt="add-reaction"
-                                    class="add-reaction cursor-pointer" (click)="openEmojiPicker($event, message1)"> 
+                                    class="add-reaction cursor-pointer" (click)="openEmojiPicker($event, message1)">
                             </div>
                         </div>
                     </div>
                     <div class="overlay-icons-receiver">
-                        <img class="reaction-icon cursor-pointer" src="../../../../assets/img/reaction.svg" alt="emoji" (click)="openEmojiPicker($event, message1)">
-                        <img class="answer-icon cursor-pointer" src="../../../../assets/img/answer.svg" alt="more options">
+                        <img class="reaction-icon cursor-pointer" src="../../../../assets/img/reaction.svg" alt="emoji"
+                            (click)="openEmojiPicker($event, message1)">
+                        <img class="answer-icon cursor-pointer" src="../../../../assets/img/answer.svg"
+                            alt="more options">
                     </div>
                     <div *ngIf="showEmojiPopup" class="emoji-popup">
                         <emoji-mart (emojiClick)="addEmojiToMessage($event.emoji.native)"></emoji-mart>
@@ -138,7 +109,8 @@
                     </div>
                     <div class="overlay-icons" *ngIf="!isEditing">
                         <img class="reaction-icon cursor-pointer" src="../../../../assets/img/reaction.svg" alt="emoji"
-                            (mouseenter)="visibilityService.hideEditMessageText()" (click)="openEmojiPicker($event, message2)">
+                            (mouseenter)="visibilityService.hideEditMessageText()"
+                            (click)="openEmojiPicker($event, message2)">
                         <img class="more-icon cursor-pointer" src="../../../../assets/img/more.svg" alt="more options"
                             (mouseenter)="visibilityService.showEditMessageText()">
                     </div>
@@ -164,7 +136,8 @@
                     </div>
                     <div class="divider"></div>
                     <div class="hover-icon">
-                        <img class="smile-icon" src="../../../../assets/img/smile.svg" alt="emoji" (click)="openEmojiPickerInput($event, input)">
+                        <img class="smile-icon" src="../../../../assets/img/smile.svg" alt="emoji"
+                            (click)="openEmojiPickerInput($event, input)">
                     </div>
                     <div class="hover-icon">
                         <img class="email-icon" src="../../../../assets/img/email.svg" alt="@-icon">
@@ -180,4 +153,74 @@
 
     </div>
     <div class="white-bg"></div>
+    <!-- member list -->
+    <div class="member-pop-up" *ngIf="showMemberOverlay">
+        <div class="member-container">
+            <div class="pop-up-member-header">
+                <span class="member-header font-size-18-weight-700-black">Mitglieder</span>
+                <div class="close-icon">
+                    <img class="cursor-pointer" src="../../../../assets/img/close.svg" alt="close"
+                        (click)="closeMemberPopUp()">
+                </div>
+            </div>
+            <div class="members-list">
+                <div class="user-list cursor-pointer">
+                    <img class="user-icon" src="../../../../assets/img/user1-icon.png" alt="user">
+                    <p class="user-name">Frederick Beck (Du)</p>
+                </div>
+                <div class="user-list cursor-pointer">
+                    <img class="user-icon" src="../../../../assets/img/user1-icon.png" alt="user">
+                    <p class="user-name">Noah Beck</p>
+                </div>
+                <div class="user-list member cursor-pointer" (mouseenter)="changeImgSrc(true)"
+                    (mouseleave)="changeImgSrc(false)"
+                    (click)="isSmallScreen() ? toggleOverlay() : toggleSearchMemberPopUp()">
+                    <div class="add-member-img">
+                        <img [src]="isHovered ? '../../../../assets/img/add-member-hover.svg' : '../../../../assets/img/add-member.svg'"
+                            alt="add member">
+                    </div>
+                    <span class="user-name add-member">Mitglieder hinzufügen</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Pop-Up Add Member by searching desktop-->
+    <div *ngIf="showSearchMemberOverlay" class="overlay-desktop">
+        <div class="overlay-content-desktop">
+            <div class="add-member-header">
+                <div class="add-people-header-desktop">
+                    <p class="font-size-24-weight-700-black">Leute hinzufügen</p>
+                    <img (click)="closeSearchMemberPopUp()" class="cursor-pointer"
+                        src="../../../../assets/img/close.svg" alt="close">
+                </div>
+                <div class="add-people-lower-header">
+                    <img src="../../../../assets/img/tag-purple.svg" alt="tag icon">
+                    <span class="name-channel">Entwicklerteam</span>
+                </div>
+            </div>
+            <div class="search-bar">
+                <input name="search" class="search-input" type="text" placeholder="Name eingeben">
+            </div>
+            <div class="btn-div">
+                <button class="main-btn">Hinzufügen</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Pop-Up Add Member by searching mobile-->
+    <div *ngIf="showOverlay" class="overlay active">
+        <div class="overlay-content">
+            <div class="line"></div>
+            <div class="add-member-header">
+                <p class="font-size-24-weight-700-black">Leute hinzufügen</p>
+                <img (click)="closeOverlay()" class="cursor-pointer" src="../../../../assets/img/close.svg" alt="close">
+            </div>
+            <div class="search-bar">
+                <input name="search" class="search-input" type="text" placeholder="Name eingeben">
+            </div>
+            <div class="btn-div">
+                <button class="main-btn">Hinzufügen</button>
+            </div>
+        </div>
+    </div>
 </div>

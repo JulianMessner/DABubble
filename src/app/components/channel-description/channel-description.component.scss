@@ -194,16 +194,6 @@
   overflow-y: hidden;
 }
 
-.overlay {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.3);
-  overflow-y: hidden;
-}
-
 .overlay-content {
   background-color: white;
   transform: translateY(100%);

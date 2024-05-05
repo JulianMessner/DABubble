@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import { ChannelDescriptionComponent } from '../../channel-description/channel-description.component';
+import { debug } from 'node:console';
 
 @Component({
   selector: 'app-main-chat',
@@ -31,6 +32,8 @@ export class MainChatComponent {
   emojiClickCounts: Map<string, number> = new Map();
   isHovered: boolean = false;
   showOverlay: boolean = false;
+  showMemberOverlay: boolean = false;
+  showSearchMemberOverlay: boolean = false;
 
   constructor(public visibilityService: VisibilityService) {}
 
@@ -135,11 +138,32 @@ export class MainChatComponent {
     this.isHovered = isHovering;
   }
 
+  isSmallScreen(): boolean {
+    return window.innerWidth < 800;
+  }  
+
   toggleOverlay() {
+    debugger;
     this.showOverlay = !this.showOverlay;
   }
 
   closeOverlay() {
     this.showOverlay = false;
+  }
+
+  toggleMemberPopUp() {
+    this.showMemberOverlay = !this.showMemberOverlay;
+  }
+
+  closeMemberPopUp() {
+    this.showMemberOverlay = false;
+  }
+
+  toggleSearchMemberPopUp() {
+    this.showSearchMemberOverlay = !this.showSearchMemberOverlay;
+  }
+
+  closeSearchMemberPopUp() {
+    this.showSearchMemberOverlay = false;
   }
 }
